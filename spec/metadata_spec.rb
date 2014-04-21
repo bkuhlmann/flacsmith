@@ -19,7 +19,7 @@ describe Flacsmith::Metadata do
 
   describe "#files" do
     it "answers FLAC files" do
-      titles = subject.files.map(&:path)
+      titles = subject.files.map(&:path).sort
       results = (1..5).map { |number| File.join album_path, "0#{number} Test Title.flac" }
 
       expect(titles).to eq(results)
@@ -43,7 +43,7 @@ describe Flacsmith::Metadata do
     it "updates track metadata based on artist, album, track number, and track title" do
       result = subject.rebuild
 
-      Dir["#{album_path}**/*"].each_with_index do |file, index|
+      Dir["#{album_path}**/*"].sort.each_with_index do |file, index|
         flac_file = Flacsmith::Flacfile.new file
         track_number = (index + 1).to_s.rjust 2, '0'
 
