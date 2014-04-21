@@ -1,0 +1,5 @@
+#!/usr/bin/ruby
+
+require "flacsmith"
+require "flacsmith/cli"
+Flacsmith::CLI.start
