@@ -6,3 +6,7 @@ rvm:
 - rbx-2
 before_install: rm -f Gemfile.lock
 script: bundle exec rspec spec
+notifications:
+  email: false
+  slack:
+    secure: FpXxivsKJnyU9lmv6yTUFDGp+D74AFFGHTcWJnmS5U3uMZEAbXCjNTKlCF73c+FpfKS9LQu+6O3KylRwG6oLTkuTb0OzNVTKXxQV2YdFqBxvWs5oAN4FqhDFj6FcDt7NNAlBHV8fDY/9PY4UMCWuZmprrADVl6fy+R1Z2Z6y3pk=
