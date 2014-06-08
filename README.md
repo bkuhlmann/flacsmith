@@ -5,6 +5,7 @@
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/flacsmith.png)](https://gemnasium.com/bkuhlmann/flacsmith)
 [![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/flacsmith.png)](http://travis-ci.org/bkuhlmann/flacsmith)
 [![Coveralls Status](https://coveralls.io/repos/bkuhlmann/flacsmith/badge.png)](https://coveralls.io/r/bkuhlmann/flacsmith)
+[![Gittip](http://img.shields.io/gittip/bkuhlmann.svg)](https://www.gittip.com/bkuhlmann)
 
 This is a Ruby wrapper for the [FLAC](https://xiph.org/flac)
 [metaflac](https://xiph.org/flac/documentation_tools_metaflac.html) command line interface (CLI). It aids in
