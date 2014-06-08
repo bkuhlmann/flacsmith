@@ -1,6 +1,6 @@
 require "bundler/setup"
-require "coveralls"
-Coveralls.wear!
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 require "flacsmith"
 require "pry"
 require "pry-remote"
