@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.author = "Brooke Kuhlmann"
   s.email = "brooke@redalchemist.com"
-  s.homepage = "http://www.redalchemist.com"
+  s.homepage = "https://github.com/bkuhlmann/flacsmith"
   s.summary = "A command line interface for managing FLAC metadata."
   s.description = "A command line interface and related utilities for managing FLAC metadata."
   s.license = "MIT"
