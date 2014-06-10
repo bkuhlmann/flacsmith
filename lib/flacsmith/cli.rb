@@ -34,7 +34,7 @@ module Flacsmith
       say "Rebuilding metadata for: #{path}..."
 
       metadata = Flacsmith::Metadata.new path
-      metadata.rebuild { |file| say "Processing: #{file.path}..." }
+      metadata.rebuild { |file| say "Rebuilding: #{file.path}..." }
 
       say "Metadata rebuilt."
     end
