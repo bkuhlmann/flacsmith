@@ -16,16 +16,16 @@ with tools like [Audacity](http://audacity.sourceforge.net), [VLC](https://www.v
 
 # Features
 
-* Lists metadata for a file, album, artist, or music collection.
-* Rebuilds metadata for a file, album, artist, or music collection.
+- Lists metadata for a file, album, artist, or music collection.
+- Rebuilds metadata for a file, album, artist, or music collection.
 
 # Requirements
 
 0. A UNIX-based system.
 0. Any of the following Ruby VMs:
-    * [MRI 2.x.x](http://www.ruby-lang.org)
-    * [JRuby 1.x.x](http://jruby.org)
-    * [Rubinius 2.x.x](http://rubini.us)
+    - [MRI 2.x.x](http://www.ruby-lang.org)
+    - [JRuby 1.x.x](http://jruby.org)
+    - [Rubinius 2.x.x](http://rubini.us)
 0. [FLAC](https://xiph.org/flac) (for OSX, run: `brew install flac`).
 
 # Setup
@@ -62,21 +62,21 @@ also means that the `--rebuild` option can be applied to a single song, album, a
 
 The following is an example of possible workflows:
 
-* List metadata for an artist:
+- List metadata for an artist:
     0. Chage directory to `<music collecton>`
     0. Run: `flacsmith -l "<artist>"`
-* List metadata for an album:
+- List metadata for an album:
     0. Chage directory to `<music collecton>/<artist>/<album>`
     0. Run: `flacsmith -l .`
-* Rebuild metadata for a new album:
+- Rebuild metadata for a new album:
     0. Copy the album to `<music collecton>/<artist>/<album>`
     0. Chage directory to `<music collecton>/<artist>`
     0. Run: `flacsmith -r "<album>"`
-* Rebuild metadata for a song:
+- Rebuild metadata for a song:
     0. Change directory to `<music collecton>/<artist></album>`
     0. Run: `mv "<old name>.flac" to "<new name>.flac"`
     0. Run: `flacsmith -r "<new name>.flac"`
-* Rebuild metadata for entire music collection:
+- Rebuild metadata for entire music collection:
     0. Run: `flacsmith -r "<music collection>"`
 
 # Tests
@@ -89,9 +89,9 @@ To test, run:
 
 Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 
-* Patch (x.y.Z) - Incremented for small, backwards compatible bug fixes.
-* Minor (x.Y.z) - Incremented for new, backwards compatible public API enhancements and/or bug fixes.
-* Major (X.y.z) - Incremented for any backwards incompatible public API changes.
+- Patch (x.y.Z) - Incremented for small, backwards compatible bug fixes.
+- Minor (x.Y.z) - Incremented for new, backwards compatible public API enhancements and/or bug fixes.
+- Major (X.y.z) - Incremented for any backwards incompatible public API changes.
 
 # Contributions
 
