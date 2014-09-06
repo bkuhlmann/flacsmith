@@ -3,10 +3,8 @@ require "spec_helper"
 describe Flacsmith::Flacfile do
   let(:sample_file_path) { File.join Dir.pwd, "spec", "support", "sample.flac" }
   let(:test_file_path) { File.join Dir.pwd, "spec", "support", "test.flac" }
-
   subject { Flacsmith::Flacfile.new test_file_path }
-
-  before(:each) { FileUtils.cp sample_file_path, test_file_path }
+  before { FileUtils.cp sample_file_path, test_file_path }
 
   describe ".parse_number" do
     it "answers the file number" do
