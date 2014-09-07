@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Flacsmith::Metadata do
   let(:temp_path) { File.join Dir.pwd, "tmp" }
-  let(:sample_file_path) { File.join Dir.pwd, "spec", "support", "sample.flac" }
+  let(:sample_file_path) { File.join Dir.pwd, "spec", "support", "files", "sample.flac" }
   let(:album_path) { File.join temp_path, "Test Artist", "Test Album" }
 
   subject { Flacsmith::Metadata.new temp_path }
