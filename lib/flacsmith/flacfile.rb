@@ -35,7 +35,7 @@ module Flacsmith
     end
 
     def get_tag key
-      result = `metaflac --show-tag="#{key}" "#{path}"`
+      result = `metaflac --show-tag="#{key}" "#{path}" 2> /dev/null`
       result.strip.gsub "#{key}=", ''
     end
 
@@ -45,13 +45,13 @@ module Flacsmith
     end
 
     def remove_tag key
-      `metaflac --remove-tag="#{key}" "#{path}"`
+      `metaflac --remove-tag="#{key}" "#{path}" 2> /dev/null`
     end
 
     def set_tag key, value
       # Remove before setting key due to a FLAC metadata flaw where duplicate keys can exist when set multiple times.
       remove_tag key
-      `metaflac --set-tag="#{key}=#{value}" "#{path}"`
+      `metaflac --set-tag="#{key}=#{value}" "#{path}" 2> /dev/null`
     end
 
     def set_tags tags = {}
