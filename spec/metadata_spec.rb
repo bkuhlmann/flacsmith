@@ -7,15 +7,13 @@ describe Flacsmith::Metadata do
 
   subject { Flacsmith::Metadata.new temp_path }
 
-  before :each do
+  before do
     FileUtils.mkdir_p album_path
 
     (1..5).each do |number|
       FileUtils.cp sample_file_path, File.join(album_path, "0#{number} Test Title.flac")
     end
   end
-
-  after(:each) { FileUtils.rm_rf temp_path }
 
   describe "#files" do
     it "answers FLAC files" do
