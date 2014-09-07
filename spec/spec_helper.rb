@@ -24,9 +24,5 @@ end
 Dir[File.join(File.dirname(__FILE__), "support/kit/**/*.rb")].each { |file| require file }
 
 RSpec.configure do |config|
-  config.before do
-    temp_dir = File.join File.dirname(__FILE__), "../tmp"
-    FileUtils.rm_rf temp_dir
-    FileUtils.mkdir temp_dir
-  end
+  # NOTE: Add Flacsmith specific configuration here. For the common configuration, see the "support/kit" folder.
 end
