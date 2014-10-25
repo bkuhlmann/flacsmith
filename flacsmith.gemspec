@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.version = Flacsmith::VERSION
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Brooke Kuhlmann"]
-  spec.email = ["bkuhlmann@alchemists.io"]
+  spec.email = ["brooke@alchemists.io"]
   spec.homepage = "https://github.com/bkuhlmann/flacsmith"
   spec.summary = "A command line interface for managing FLAC metadata."
   spec.description = "A command line interface and related utilities for managing FLAC metadata."
