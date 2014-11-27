@@ -40,7 +40,7 @@ describe Flacsmith::Metadata, :temp_dir do
     it "updates track metadata based on artist, album, track number, and track title" do
       result = subject.rebuild
 
-      Dir["#{album_path}**/*"].sort.each_with_index do |file, index|
+      Dir["#{album_path}**/*"].sort.each.with_index do |file, index|
         flac_file = Flacsmith::Flacfile.new file
         track_number = (index + 1).to_s.rjust 2, '0'
 
