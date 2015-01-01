@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    flacsmith (1.0.0)
+    flacsmith (2.0.0)
       thor (~> 0.19)
       thor_plus (~> 2.0)
 
