@@ -1,3 +1,8 @@
+# v2.1.0 (2015-03-12)
+
+- Fixed bug where track label prefixed with numbers would be lost.
+- Updated to Ruby 2.2.1.
+
 # v2.0.0 (2015-01-01)
 
 - Removed Ruby 2.0.0 support.
