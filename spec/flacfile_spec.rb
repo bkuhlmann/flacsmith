@@ -7,14 +7,22 @@ describe Flacsmith::Flacfile, :temp_dir do
   before { FileUtils.cp sample_file_path, test_file_path }
 
   describe ".parse_number" do
-    it "answers the file number" do
+    it "answers file number" do
       expect(Flacsmith::Flacfile.parse_number("02 Red Barchetta.flac")).to eq "02"
+    end
+
+    it "answers file number even when title includes number" do
+      expect(Flacsmith::Flacfile.parse_number("05 18 and Life.flac")).to eq "05"
     end
   end
 
   describe ".parse_title" do
-    it "answers the file title" do
+    it "answers file title" do
       expect(Flacsmith::Flacfile.parse_title("02 Red Barchetta.flac")).to eq "Red Barchetta"
+    end
+
+    it "answers file title even when title includes number" do
+      expect(Flacsmith::Flacfile.parse_title("05 18 and Life.flac")).to eq "18 and Life"
     end
   end
 

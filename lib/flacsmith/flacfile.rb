@@ -27,7 +27,7 @@ module Flacsmith
     end
 
     def self.parse_title file_name
-      file_name.gsub(/\d{2}\s/, '').chomp ".flac"
+      file_name.gsub(/^\d+/, '').strip.chomp ".flac"
     end
 
     def initialize path
