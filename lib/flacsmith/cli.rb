@@ -42,7 +42,7 @@ module Flacsmith
     desc "-v, [--version]", "Show version."
     map %w(-v --version) => :version
     def version
-      say "Flacsmith " + VERSION
+      say Flacsmith::Identity.label_version
     end
 
     desc "-h, [--help=HELP]", "Show this message or get help for a command."
