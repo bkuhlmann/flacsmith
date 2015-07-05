@@ -1,9 +1,9 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "flacsmith/version"
+require "flacsmith/identity"
 
 Gem::Specification.new do |spec|
-  spec.name = "flacsmith"
-  spec.version = Flacsmith::VERSION
+  spec.name = Flacsmith::Identity.name
+  spec.version = Flacsmith::Identity.version
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
