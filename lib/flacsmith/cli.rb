@@ -8,6 +8,8 @@ module Flacsmith
     include Thor::Actions
     include ThorPlus::Actions
 
+    package_name Flacsmith::Identity.label
+
     # Initialize.
     def initialize args = [], options = {}, config = {}
       super args, options, config
