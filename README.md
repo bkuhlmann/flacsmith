@@ -1,4 +1,4 @@
-# Overview
+# Flacsmith
 
 [![Gem Version](https://badge.fury.io/rb/flacsmith.png)](http://badge.fury.io/rb/flacsmith)
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/flacsmith.png)](https://codeclimate.com/github/bkuhlmann/flacsmith)
