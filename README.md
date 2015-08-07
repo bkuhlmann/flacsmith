@@ -1,6 +1,6 @@
 # Flacsmith
 
-[![Gem Version](https://badge.fury.io/rb/flacsmith.png)](http://badge.fury.io/rb/flacsmith)
+[![Gem Version](https://badge.fury.io/rb/flacsmith.svg)](http://badge.fury.io/rb/flacsmith)
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/flacsmith.png)](https://codeclimate.com/github/bkuhlmann/flacsmith)
 [![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/flacsmith/coverage.png)](https://codeclimate.com/github/bkuhlmann/flacsmith)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/flacsmith.png)](https://gemnasium.com/bkuhlmann/flacsmith)
