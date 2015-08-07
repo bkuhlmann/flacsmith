@@ -4,7 +4,7 @@
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/flacsmith.svg)](https://codeclimate.com/github/bkuhlmann/flacsmith)
 [![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/flacsmith/coverage.svg)](https://codeclimate.com/github/bkuhlmann/flacsmith)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/flacsmith.svg)](https://gemnasium.com/bkuhlmann/flacsmith)
-[![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/flacsmith.png)](http://travis-ci.org/bkuhlmann/flacsmith)
+[![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/flacsmith.svg)](http://travis-ci.org/bkuhlmann/flacsmith)
 [![Gittip](http://img.shields.io/gittip/bkuhlmann.svg)](https://www.gittip.com/bkuhlmann)
 
 This is a Ruby wrapper for the [FLAC](https://xiph.org/flac)
