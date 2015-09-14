@@ -4,5 +4,5 @@ require "flacsmith"
 require "flacsmith/cli"
 require "flacsmith/identity"
 
-Process.setproctitle Flacsmith::Identity.label_version
+Process.setproctitle Flacsmith::Identity.version_label
 Flacsmith::CLI.start

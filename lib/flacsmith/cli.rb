@@ -8,7 +8,7 @@ module Flacsmith
     include Thor::Actions
     include ThorPlus::Actions
 
-    package_name Flacsmith::Identity.label
+    package_name Flacsmith::Identity.version_label
 
     # Initialize.
     def initialize args = [], options = {}, config = {}
@@ -44,7 +44,7 @@ module Flacsmith
     desc "-v, [--version]", "Show version."
     map %w(-v --version) => :version
     def version
-      say Flacsmith::Identity.label_version
+      say Flacsmith::Identity.version_label
     end
 
     desc "-h, [--help=HELP]", "Show this message or get help for a command."
