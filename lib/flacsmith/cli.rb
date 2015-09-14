@@ -41,7 +41,7 @@ module Flacsmith
       say "Metadata rebuilt."
     end
 
-    desc "-v, [--version]", "Show version."
+    desc "-v, [--version]", "Show #{Flacsmith::Identity.label} version."
     map %w(-v --version) => :version
     def version
       say Flacsmith::Identity.version_label
