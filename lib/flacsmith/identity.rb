@@ -1,4 +1,5 @@
 module Flacsmith
+  # Gem identity information.
   module Identity
     def self.name
       "flacsmith"
