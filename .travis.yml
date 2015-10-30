@@ -7,7 +7,7 @@ rvm:
 - 2.2.0
 before_install:
 - sudo apt-get install flac
-script: bundle exec rspec spec
+script: bundle exec rake
 notifications:
   email: false
   slack:
