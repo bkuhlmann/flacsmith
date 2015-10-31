@@ -4,6 +4,7 @@ require "thor/actions"
 require "thor_plus/actions"
 
 module Flacsmith
+  # The Command Line Interface (CLI) for the gem.
   class CLI < Thor
     include Thor::Actions
     include ThorPlus::Actions
@@ -56,7 +57,7 @@ module Flacsmith
     private
 
     def print_tags tags = []
-      tags.delete_if { |key, value| value.nil? || value == '' }
+      tags.delete_if { |_, value| value.nil? || value == "" }
       tags.each { |key, value| say "#{key} = #{value}" }
     end
   end

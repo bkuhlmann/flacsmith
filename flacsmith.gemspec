@@ -1,4 +1,4 @@
-$:.push File.expand_path("../lib", __FILE__)
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
 require "flacsmith/identity"
 
 Gem::Specification.new do |spec|
@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "terminal-notifier"
   spec.add_development_dependency "terminal-notifier-guard"
+  spec.add_development_dependency "rubocop"
   spec.add_development_dependency "codeclimate-test-reporter"
 
   spec.files = Dir["lib/**/*", "vendor/**/*"]

@@ -1,4 +1,5 @@
 module Flacsmith
+  # Represents a FLAC file.
   class Flacfile
     attr_accessor :path
 
@@ -27,7 +28,7 @@ module Flacsmith
     end
 
     def self.parse_title file_name
-      file_name.gsub(/^\d+/, '').strip.chomp ".flac"
+      file_name.gsub(/^\d+/, "").strip.chomp ".flac"
     end
 
     def initialize path
@@ -36,7 +37,7 @@ module Flacsmith
 
     def get_tag key
       result = `metaflac --show-tag="#{key}" "#{path}" 2> /dev/null`
-      result.strip.gsub "#{key}=", ''
+      result.strip.gsub "#{key}=", ""
     end
 
     def get_tags keys = []
@@ -73,11 +74,11 @@ module Flacsmith
     private
 
     def method_allowed? name
-      self.class.allowed_methods.include? name.to_s.chomp('=')
+      self.class.allowed_methods.include? name.to_s.chomp("=")
     end
 
     def method_to_key name
-      name.to_s.chomp('=').upcase
+      name.to_s.chomp("=").upcase
     end
 
     def methods_to_keys names

@@ -1,4 +1,5 @@
 module Flacsmith
+  # Manages the rebuilding of FLAC file metadata.
   class Metadata
     attr_accessor :path
 

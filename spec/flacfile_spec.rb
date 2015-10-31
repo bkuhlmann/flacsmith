@@ -35,11 +35,11 @@ describe Flacsmith::Flacfile, :temp_dir do
   describe "#get_tag" do
     it "answers an empty string for invalid file" do
       subject.path = "/bogus/file.flac"
-      expect(subject.get_tag("ARTIST")).to eq('')
+      expect(subject.get_tag("ARTIST")).to eq("")
     end
 
     it "answers an empty string when no tag can be found" do
-      expect(subject.get_tag("BOGUS")).to eq('')
+      expect(subject.get_tag("BOGUS")).to eq("")
     end
   end
 
@@ -87,7 +87,7 @@ describe Flacsmith::Flacfile, :temp_dir do
         "GENRE" => "Flacsmith Genre",
         "ORGANIZATION" => "Flacsmith Organization",
         "TRACKNUMBER" => "02",
-        "TITLE" => '',
+        "TITLE" => "",
         "DESCRIPTION" => "Flacsmith Description",
         "LOCATION" => "Flacsmith Location",
         "CONTACT" => "Flacsmith Contact",
@@ -105,22 +105,22 @@ describe Flacsmith::Flacfile, :temp_dir do
   describe "#remove_tag" do
     it "removes tag for given key" do
       subject.remove_tag "TITLE"
-      expect(subject.title).to eq('')
+      expect(subject.title).to eq("")
     end
 
     it "answers an empty string when no tag can be found" do
-      expect(subject.remove_tag("BOGUS")).to eq('')
+      expect(subject.remove_tag("BOGUS")).to eq("")
     end
   end
 
   describe "#set_tag" do
     it "answers an empty string for invalid file" do
       subject.path = "/bogus/file.flac"
-      expect(subject.set_tag("ARTIST", "Test Artist")).to eq('')
+      expect(subject.set_tag("ARTIST", "Test Artist")).to eq("")
     end
 
     it "answers an empty string when no tag can be found" do
-      expect(subject.set_tag("BOGUS", "Bogus")).to eq('')
+      expect(subject.set_tag("BOGUS", "Bogus")).to eq("")
     end
   end
 
@@ -154,7 +154,7 @@ describe Flacsmith::Flacfile, :temp_dir do
 
   describe "#performer" do
     it "gets the performer tag" do
-      expect(subject.performer).to eq('Flacsmith Performer')
+      expect(subject.performer).to eq("Flacsmith Performer")
     end
   end
 

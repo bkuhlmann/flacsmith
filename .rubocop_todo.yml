@@ -1,0 +1,6 @@
+Metrics/MethodLength:
+  Exclude:
+    - "lib/flacsmith/flacfile.rb"
+Style/AccessorMethodName:
+  Exclude:
+    - "lib/flacsmith/flacfile.rb"
