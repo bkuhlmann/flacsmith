@@ -14,8 +14,8 @@ the directory/file structure makes organizing and managing large music collectio
 with tools like [Audacity](http://audacity.sourceforge.net), [VLC](https://www.videolan.org/vlc/index.html), and/or
 [Sonos](http://www.sonos.com) (to name a few).
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- Tocer[start]: Auto-generated, don't remove. -->
+
 # Table of Contents
 
 - [Features](#features)
@@ -30,7 +30,7 @@ with tools like [Audacity](http://audacity.sourceforge.net), [VLC](https://www.v
 - [History](#history)
 - [Credits](#credits)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- Tocer[finish]: Auto-generated, don't remove. -->
 
 # Features
 
