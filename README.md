@@ -98,7 +98,7 @@ The following is an example of possible workflows:
 
 To test, run:
 
-    bundle exec rspec spec
+    bundle exec rake
 
 # Versioning
 
