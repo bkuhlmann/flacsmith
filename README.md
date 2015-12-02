@@ -4,7 +4,7 @@
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/flacsmith.svg)](https://codeclimate.com/github/bkuhlmann/flacsmith)
 [![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/flacsmith/coverage.svg)](https://codeclimate.com/github/bkuhlmann/flacsmith)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/flacsmith.svg)](https://gemnasium.com/bkuhlmann/flacsmith)
-[![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/flacsmith.svg)](http://travis-ci.org/bkuhlmann/flacsmith)
+[![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/flacsmith.svg)](https://travis-ci.org/bkuhlmann/flacsmith)
 [![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg)](https://www.patreon.com/bkuhlmann)
 
 This is a Ruby wrapper for the [FLAC](https://xiph.org/flac)
@@ -40,7 +40,7 @@ with tools like [Audacity](http://audacity.sourceforge.net), [VLC](https://www.v
 # Requirements
 
 0. A UNIX-based system.
-0. [MRI 2.x.x](http://www.ruby-lang.org).
+0. [MRI 2.x.x](https://www.ruby-lang.org).
 0. [FLAC](https://xiph.org/flac) (for OSX, run: `brew install flac`).
 
 # Setup
