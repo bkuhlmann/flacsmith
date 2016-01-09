@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Flacsmith::Metadata, :temp_dir do
+RSpec.describe Flacsmith::Metadata, :temp_dir do
   let(:sample_file_path) { File.join Dir.pwd, "spec", "support", "files", "sample.flac" }
   let(:album_path) { File.join temp_dir, "Test Artist", "Test Album" }
 

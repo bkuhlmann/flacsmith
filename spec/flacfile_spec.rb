@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Flacsmith::Flacfile, :temp_dir do
+RSpec.describe Flacsmith::Flacfile, :temp_dir do
   let(:sample_file_path) { File.join Dir.pwd, "spec", "support", "files", "sample.flac" }
   let(:test_file_path) { File.join temp_dir, "test.flac" }
   subject { Flacsmith::Flacfile.new test_file_path }
