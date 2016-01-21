@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Flacsmith
   # Represents a FLAC file.
   class Flacfile

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Flacsmith
   # Manages the rebuilding of FLAC file metadata.
   class Metadata
