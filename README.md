@@ -40,7 +40,7 @@ with tools like [Audacity](http://audacity.sourceforge.net), [VLC](https://www.v
 # Requirements
 
 0. A UNIX-based system.
-0. [MRI 2.x.x](https://www.ruby-lang.org).
+0. [Ruby 2.3.x](https://www.ruby-lang.org).
 0. [FLAC](https://xiph.org/flac) (for OSX, run: `brew install flac`).
 
 # Setup

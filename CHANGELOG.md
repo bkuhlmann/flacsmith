@@ -1,3 +1,11 @@
+# v3.0.0 (2016-01-20)
+
+- Added IRB development console Rake task support.
+- Updated gem binary shebang comment format.
+- Updated to Ruby 2.3.0.
+- Removed RSpec default monkey patching behavior.
+- Removed Ruby 2.1.x and 2.2.x support.
+
 # v2.3.0 (2015-12-02)
 
 - Fixed README URLs to use HTTPS schemes where possible.
