@@ -6,7 +6,7 @@ module Flacsmith
     attr_accessor :path
 
     def self.allowed_methods
-      %w(
+      %w[
         artist
         performer
         album
@@ -22,7 +22,7 @@ module Flacsmith
         copyright
         date
         isrc
-      )
+      ]
     end
 
     def self.parse_number file_name

@@ -19,7 +19,7 @@ module Flacsmith
     end
 
     desc "-l, [--list]", "List track metadata for given folder/file structure."
-    map %w(-l --list) => :list
+    map %w[-l --list] => :list
     def list path
       say "Listing metadata for: #{path}...\n\n"
 
@@ -34,7 +34,7 @@ module Flacsmith
     end
 
     desc "-r, [--rebuild]", "Rebuild track metadata for given folder/file structure."
-    map %w(-r --rebuild) => :rebuild
+    map %w[-r --rebuild] => :rebuild
     def rebuild path
       say "Rebuilding metadata for: #{path}..."
 
@@ -45,15 +45,15 @@ module Flacsmith
     end
 
     desc "-v, [--version]", "Show gem version."
-    map %w(-v --version) => :version
+    map %w[-v --version] => :version
     def version
       say Flacsmith::Identity.version_label
     end
 
     desc "-h, [--help=HELP]", "Show this message or get help for a command."
-    map %w(-h --help) => :help
+    map %w[-h --help] => :help
     def help task = nil
-      say && super
+      say and super
     end
 
     private

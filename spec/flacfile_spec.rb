@@ -47,7 +47,7 @@ RSpec.describe Flacsmith::Flacfile, :temp_dir do
 
   describe "#get_tags" do
     it "answers tags (hash) for a given array of keys" do
-      keys = %w(ARTIST ALBUM TITLE)
+      keys = %w[ARTIST ALBUM TITLE]
       result = {
         "ARTIST" => "Flacsmith Artist",
         "ALBUM" => "Flacsmith Album",
