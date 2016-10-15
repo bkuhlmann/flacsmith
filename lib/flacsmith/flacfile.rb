@@ -65,6 +65,7 @@ module Flacsmith
       method_allowed?(name) || super(name)
     end
 
+    # rubocop:disable Style/MethodMissing
     def method_missing name, *args, &block
       if method_allowed?(name)
         send_to_getter_or_setter(name, *args, &block)
