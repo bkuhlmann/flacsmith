@@ -18,7 +18,7 @@ module Flacsmith
       super args, options, config
     end
 
-    desc "-l, [--list]", "List track metadata for given folder/file structure."
+    desc "-l, [--list=PATH]", "List track metadata for given folder/file structure."
     map %w[-l --list] => :list
     def list path
       say "Listing metadata for: #{path}...\n\n"
@@ -33,7 +33,7 @@ module Flacsmith
       say "Metadata list complete."
     end
 
-    desc "-r, [--rebuild]", "Rebuild track metadata for given folder/file structure."
+    desc "-r, [--rebuild=PATH]", "Rebuild track metadata for given folder/file structure."
     map %w[-r --rebuild] => :rebuild
     def rebuild path
       say "Rebuilding metadata for: #{path}..."
@@ -50,7 +50,7 @@ module Flacsmith
       say Flacsmith::Identity.version_label
     end
 
-    desc "-h, [--help=HELP]", "Show this message or get help for a command."
+    desc "-h, [--help=COMMAND]", "Show this message or get help for a command."
     map %w[-h --help] => :help
     def help task = nil
       say and super
