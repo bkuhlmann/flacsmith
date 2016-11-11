@@ -1,0 +1,22 @@
+---
+FeatureEnvy:
+  exclude:
+  - Flacsmith::CLI#print_tags
+NilCheck:
+  exclude:
+  - Flacsmith::CLI#print_tags
+TooManyStatements:
+  exclude:
+  - initialize
+  - Flacsmith::CLI#list
+Attribute:
+  exclude:
+  - Flacsmith::Flacfile#path
+  - Flacsmith::Metadata#path
+UtilityFunction:
+  exclude:
+  - Flacsmith::Flacfile#method_to_key
+  - Flacsmith::Metadata#build_metadata
+DuplicateMethodCall:
+  exclude:
+  - Flacsmith::Metadata#build_metadata
