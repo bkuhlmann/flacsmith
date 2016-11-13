@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "flacsmith/cli"
 
 RSpec.describe Flacsmith::CLI do
   describe ".start" do

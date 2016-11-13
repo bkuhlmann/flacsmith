@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "yaml"
 require "thor"
 require "thor/actions"
 require "thor_plus/actions"
@@ -11,7 +10,7 @@ module Flacsmith
     include Thor::Actions
     include ThorPlus::Actions
 
-    package_name Flacsmith::Identity.version_label
+    package_name Identity.version_label
 
     # Initialize.
     def initialize args = [], options = {}, config = {}
@@ -23,7 +22,7 @@ module Flacsmith
     def list path
       say "Listing metadata for: #{path}...\n\n"
 
-      metadata = Flacsmith::Metadata.new path
+      metadata = Metadata.new path
       metadata.files.each do |file|
         say "FILE = #{file.path}"
         print_tags file.get_tags
@@ -38,7 +37,7 @@ module Flacsmith
     def rebuild path
       say "Rebuilding metadata for: #{path}..."
 
-      metadata = Flacsmith::Metadata.new path
+      metadata = Metadata.new path
       metadata.rebuild { |file| say "Rebuilding: #{file.path}..." }
 
       say "Metadata rebuilt."
@@ -47,7 +46,7 @@ module Flacsmith
     desc "-v, [--version]", "Show gem version."
     map %w[-v --version] => :version
     def version
-      say Flacsmith::Identity.version_label
+      say Identity.version_label
     end
 
     desc "-h, [--help=COMMAND]", "Show this message or get help for a command."

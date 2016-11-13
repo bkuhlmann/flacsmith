@@ -10,7 +10,7 @@ module Flacsmith
     end
 
     def files
-      file_paths.map { |file_path| Flacsmith::Flacfile.new file_path }
+      file_paths.map { |file_path| Flacfile.new file_path }
     end
 
     def rebuild
@@ -36,8 +36,8 @@ module Flacsmith
       original_file = path_nodes.pop
 
       {
-        "TRACKNUMBER" => Flacsmith::Flacfile.parse_number(original_file),
-        "TITLE" => Flacsmith::Flacfile.parse_title(original_file),
+        "TRACKNUMBER" => Flacfile.parse_number(original_file),
+        "TITLE" => Flacfile.parse_title(original_file),
         "ALBUM" => path_nodes.pop,
         "ARTIST" => path_nodes.pop
       }
