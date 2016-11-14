@@ -1,3 +1,42 @@
+# v4.0.0 (2016-11-14)
+
+- Fixed Rakefile to safely load Gemsmith tasks.
+- Fixed Ruby pragma.
+- Fixed contributing guideline links.
+- Added CLI version and help specs.
+- Added Code Climate engine support.
+- Added GitHub issue and pull request templates.
+- Added Reek support.
+- Added Rubocop Style/SignalException cop style.
+- Added `Gemfile.lock` to `.gitignore`.
+- Added bond, wirb, hirb, and awesome_print development dependencies.
+- Added frozen string literal pragma.
+- Updated CLI command option documentation.
+- Updated GitHub issue and pull request templates.
+- Updated README secure gem install documentation.
+- Updated README versioning documentation.
+- Updated RSpec temp directory to use Bundler root path.
+- Updated Rubocop PercentLiteralDelimiters and AndOr styles.
+- Updated gemspec with conservative versions.
+- Updated to Code Climate Test Reporter 1.0.0.
+- Updated to Code of Conduct, Version 1.4.0.
+- Updated to Gemsmith 7.7.0.
+- Updated to Gemsmith 8.1.0.
+- Updated to RSpec 3.5.0.
+- Updated to Rubocop 0.44.
+- Updated to Ruby 2.3.1.
+- Updated to Thor+ 4.0.0.
+- Removed CHANGELOG.md (use CHANGES.md instead).
+- Removed Rake console task.
+- Removed gem name from CLI version description.
+- Removed gemspec description.
+- Removed rb-fsevent development dependency from gemspec.
+- Removed terminal notifier gems from gemspec.
+- Refactored RSpec spec helper configuration.
+- Refactored gemspec to use default security keys.
+- Refactored source requirements.
+- Refactored specs to *flacsmith* folder.
+
 # v3.0.0 (2016-01-20)
 
 - Added IRB development console Rake task support.
