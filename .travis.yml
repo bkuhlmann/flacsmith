@@ -1,9 +1,12 @@
+dist: trusty
+sudo: required
 language: ruby
 env:
   global:
     - secure: E+fPXR+FH9gthRwawDC7DbU2gv1F8YaNypHHe4KRx+cvyNfZIyArGS5u6l28cqxZG2dOyPUu4LU6S69ylhfrc3VkwOcc4ZQIpaxbXv3DAjwdXWwVN1Dt7W1cDA011oYbPPJe2N0gZeFVqPx2cSzXcW4nKN8A7ZR3LZ5l+ojIwqA=
 before_install:
-- sudo apt-get install flac
+  - sudo apt-get update
+  - sudo apt-get install flac
 after_script: bundle exec codeclimate-test-reporter
 notifications:
   email: false
