@@ -14,6 +14,7 @@ module Flacsmith
         %(--picture="<picture_path>")
       ].freeze
 
+      # rubocop:disable Metrics/ParameterLists
       def initialize input_path:, picture_path: "", output_dir: "", logger: Logger.new(STDOUT)
         @input_path = Pathname String(input_path)
         @picture = Metadata::Picture.new picture_path

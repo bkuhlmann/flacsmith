@@ -8,6 +8,7 @@ module Flacsmith
     class Album
       FILE_EXTENSIONS = /\.(aif|aiff)/
 
+      # rubocop:disable Metrics/ParameterLists
       def initialize input_dir:, output_dir: "", picture_path: "", track_converter: Track
         @input_dir = Pathname String(input_dir)
         @output_dir = Pathname String(output_dir)
