@@ -17,7 +17,7 @@ module Flacsmith
 
       def convert
         input_dir.entries.each do |path|
-          next unless path.extname =~ FILE_EXTENSIONS
+          next unless path.extname.match?(FILE_EXTENSIONS)
 
           track_converter.new(
             input_path: File.join(input_dir, path),
