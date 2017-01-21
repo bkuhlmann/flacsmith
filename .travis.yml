@@ -7,6 +7,7 @@ env:
 before_install:
   - sudo apt-get update
   - sudo apt-get install flac
+  - gem update --system && gem update && gem cleanup
 after_script: bundle exec codeclimate-test-reporter
 notifications:
   email: false
