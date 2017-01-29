@@ -19,6 +19,7 @@ module Flacsmith
 
     desc "-l, [--list=PATH]", "List track metadata for given folder/file structure."
     map %w[-l --list] => :list
+    # :reek:TooManyStatements
     def list path
       say "Listing metadata for: #{path}...\n\n"
 
@@ -57,6 +58,8 @@ module Flacsmith
 
     private
 
+    # :reek:FeatureEnvy
+    # :reek:NilCheck
     def print_tags tags = []
       tags.delete_if { |_, value| value.nil? || value == "" }
       tags.each { |key, value| say "#{key} = #{value}" }

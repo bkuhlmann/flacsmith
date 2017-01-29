@@ -3,8 +3,10 @@
 module Flacsmith
   # Represents a FLAC file.
   class Flacfile
+    # :reek:Attribute
     attr_accessor :path
 
+    # rubocop:disable Metrics/MethodLength
     def self.allowed_methods
       %w[
         artist
@@ -57,6 +59,7 @@ module Flacsmith
       `metaflac --set-tag="#{key}=#{value}" "#{path}" 2> /dev/null`
     end
 
+    # rubocop:disable Style/AccessorMethodName
     def set_tags tags = {}
       tags.each { |key, value| set_tag key, value }
     end
@@ -80,6 +83,7 @@ module Flacsmith
       self.class.allowed_methods.include? name.to_s.chomp("=")
     end
 
+    # :reek:UtilityFunction
     def method_to_key name
       name.to_s.chomp("=").upcase
     end
