@@ -23,7 +23,7 @@ module Flacsmith
     def list path
       say "Listing metadata for: #{path}...\n\n"
 
-      metadata = Metadata.new path
+      metadata = Metadata::Updater.new path
       metadata.files.each do |file|
         say "FILE = #{file.path}"
         print_tags file.get_tags
