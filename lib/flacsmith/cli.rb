@@ -3,6 +3,7 @@
 require "thor"
 require "thor/actions"
 require "thor_plus/actions"
+require "pathname"
 
 module Flacsmith
   # The Command Line Interface (CLI) for the gem.
@@ -19,27 +20,21 @@ module Flacsmith
 
     desc "-l, [--list=PATH]", "List track metadata for given folder/file structure."
     map %w[-l --list] => :list
-    # :reek:TooManyStatements
     def list path
       say "Listing metadata for: #{path}...\n\n"
-
-      metadata = Metadata::Updater.new path
-      metadata.files.each do |file|
-        say "FILE = #{file.path}"
-        print_tags file.get_tags
-        say
-      end
-
+      print_metadata path
       say "Metadata list complete."
     end
 
     desc "-r, [--rebuild=PATH]", "Rebuild track metadata for given folder/file structure."
     map %w[-r --rebuild] => :rebuild
+    # :reek:TooManyStatements
     def rebuild path
       say "Rebuilding metadata for: #{path}..."
 
-      metadata = Metadata.new path
-      metadata.rebuild { |file| say "Rebuilding: #{file.path}..." }
+      metadata = Metadata::Builder.new path
+      metadata.build
+      metadata.paths.each { |file_path| say "Processed: #{file_path}" }
 
       say "Metadata rebuilt."
     end
@@ -58,11 +53,16 @@ module Flacsmith
 
     private
 
-    # :reek:FeatureEnvy
-    # :reek:NilCheck
-    def print_tags tags = []
-      tags.delete_if { |_, value| value.nil? || value == "" }
-      tags.each { |key, value| say "#{key} = #{value}" }
+    def print_tags path
+      Metadata::Tagger.new(path).read.map { |key, value| say "#{key} = #{value}" }
+    end
+
+    def print_metadata path
+      Pathname.glob("#{path}/**/*.flac").each do |file_path|
+        say "FILE = #{file_path}"
+        print_tags file_path
+        say
+      end
     end
   end
 end
