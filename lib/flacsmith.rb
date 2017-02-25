@@ -3,6 +3,7 @@
 require "flacsmith/identity"
 require "flacsmith/errors/invalid_metadata_key"
 require "flacsmith/metadata/formatter"
+require "flacsmith/metadata/tag"
 require "flacsmith/metadata/file"
 require "flacsmith/metadata/picture"
 require "flacsmith/flacfile"
