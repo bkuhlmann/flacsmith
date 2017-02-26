@@ -1,3 +1,37 @@
+# v4.2.0 (2017-02-26)
+
+- Fixed Travis CI configuration to not update gems.
+- Added CLI `--convert` option for converting audio.
+- Added FLAC album converter support.
+- Added FLAC file metadata.
+- Added FLAC metadata formatter.
+- Added FLAC metadata tagger.
+- Added FLAC picture metadata.
+- Added FLAC tag metadata.
+- Added FLAC track file converter support.
+- Added Flacsmith-specific error support.
+- Added Refinements gem.
+- Added code quality Rake task.
+- Added invalid metadata tag error.
+- Updated README semantic versioning order.
+- Updated RSpec configuration to output documentation when running.
+- Updated RSpec spec helper to enable color output.
+- Updated Rubocop Metrics/LineLength to 100 characters.
+- Updated Rubocop Metrics/ParameterLists max to three.
+- Updated Rubocop to import from global configuration.
+- Updated Travis CI configuration to use latest RubyGems version.
+- Updated contributing documentation.
+- Updated gemspec to require Ruby 2.4.0 or higher.
+- Updated to Rubocop 0.47.
+- Updated to Ruby 2.4.0.
+- Removed Code Climate code comment checks.
+- Removed Flacfile object.
+- Removed Rubocop Style/Documentation check.
+- Removed `.bundle` directory from `.gitignore`.
+- Refactored CLI to use new metadata objects.
+- Refactored FLAC metadata updater as builder.
+- Refactored Reek and Rubocop issues.
+
 # v4.1.0 (2016-12-18)
 
 - Fixed Rakefile support for RSpec, Reek, Rubocop, and SCSS Lint.

@@ -7,13 +7,12 @@
 [![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/flacsmith.svg)](https://travis-ci.org/bkuhlmann/flacsmith)
 [![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg)](https://www.patreon.com/bkuhlmann)
 
-This is a Ruby wrapper for the [FLAC](https://xiph.org/flac)
-[metaflac](https://xiph.org/flac/documentation_tools_metaflac.html) command line interface (CLI). It
-aids in listing/rebuilding metadata for a music collection, artist, album, or song. Having metadata
-information that reflects the directory/file structure makes organizing and managing large music
-collections easier. This can be especially useful with tools like
-[Audacity](http://audacity.sourceforge.net), [VLC](https://www.videolan.org/vlc/index.html), and/or
-[Sonos](http://www.sonos.com) (to name a few).
+This is a Ruby wrapper for the [FLAC](https://xiph.org/flac) commands. It aids in listing/rebuilding
+metadata for a music collection, artist, album, or song. Having metadata information that reflects
+the directory/file structure makes organizing and managing large music collections easier. This can
+be especially useful with tools like [Audacity](http://audacity.sourceforge.net),
+[VLC](https://www.videolan.org/vlc/index.html), and/or [Sonos](http://www.sonos.com) (to name a
+few).
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
@@ -41,7 +40,7 @@ collections easier. This can be especially useful with tools like
 # Requirements
 
 0. A UNIX-based system.
-0. [Ruby 2.3.x](https://www.ruby-lang.org).
+0. [Ruby 2.4.x](https://www.ruby-lang.org).
 0. [FLAC](https://xiph.org/flac) (for OSX, run: `brew install flac`).
 
 # Setup
@@ -63,10 +62,11 @@ For an insecure install, type the following (not recommended):
 
 From the command line, type: pennyworth
 
-    flacsmith -h, [--help=COMMAND]  # Show this message or get help for a command.
-    flacsmith -l, [--list=PATH]     # List track metadata for given folder/file structure.
-    flacsmith -r, [--rebuild=PATH]  # Rebuild track metadata for given folder/file structure.
-    flacsmith -v, [--version]       # Show gem version.
+    flacsmith -C, [--convert=INPUT_DIR OUTPUT_DIR]  # Convert source audio to FLAC audio.
+    flacsmith -h, [--help=COMMAND]                  # Show this message or get help for a command.
+    flacsmith -l, [--list=PATH]                     # List track metadata for given folder/file structure.
+    flacsmith -r, [--rebuild=PATH]                  # Rebuild track metadata for given folder/file structure.
+    flacsmith -v, [--version]                       # Show gem version.
 
 The following directory structure is assumed:
 
@@ -80,22 +80,23 @@ be applied to a single song, album, artist, or a complete music collection.
 
 The following is an example of possible workflows:
 
+- Convert AIFF files to FLAC files:
+  0. Run: `flacsmith -C <input dir> <output dir>`
 - List metadata for an artist:
-    0. Chage directory to `<music collecton>`
-    0. Run: `flacsmith -l "<artist>"`
+  0. Run: `flacsmith -l <artist>`
 - List metadata for an album:
-    0. Chage directory to `<music collecton>/<artist>/<album>`
-    0. Run: `flacsmith -l .`
+  0. Run: `flacsmith -l <artist>/<album>`
+- List metadata for collection:
+  0. Run: `flacsmith -l .`
 - Rebuild metadata for a new album:
-    0. Copy the album to `<music collecton>/<artist>/<album>`
-    0. Chage directory to `<music collecton>/<artist>`
-    0. Run: `flacsmith -r "<album>"`
+  0. Copy the album to `<collecton>/<artist>/<album>`
+  0. Run: `flacsmith -r <collecton>/<artist>/<album>`
 - Rebuild metadata for a song:
-    0. Change directory to `<music collecton>/<artist></album>`
-    0. Run: `mv "<old name>.flac" to "<new name>.flac"`
-    0. Run: `flacsmith -r "<new name>.flac"`
+  0. Change directory to `<collecton>/<artist></album>`
+  0. Run: `mv <old name>.flac` to `<new name>.flac`
+  0. Run: `flacsmith -r <new name>.flac`
 - Rebuild metadata for entire music collection:
-    0. Run: `flacsmith -r "<music collection>"`
+  0. Run: `flacsmith -r .`
 
 # Tests
 
