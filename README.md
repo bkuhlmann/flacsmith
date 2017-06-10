@@ -4,7 +4,7 @@
 [![Code Climate GPA](https://codeclimate.com/github/bkuhlmann/flacsmith.svg)](https://codeclimate.com/github/bkuhlmann/flacsmith)
 [![Code Climate Coverage](https://codeclimate.com/github/bkuhlmann/flacsmith/coverage.svg)](https://codeclimate.com/github/bkuhlmann/flacsmith)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/flacsmith.svg)](https://gemnasium.com/bkuhlmann/flacsmith)
-[![Travis CI Status](https://secure.travis-ci.org/bkuhlmann/flacsmith.svg)](https://travis-ci.org/bkuhlmann/flacsmith)
+[![Circle CI Status](https://circleci.com/gh/bkuhlmann/flacsmith.svg?style=svg)](https://circleci.com/gh/bkuhlmann/flacsmith)
 [![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg)](https://www.patreon.com/bkuhlmann)
 
 This is a Ruby wrapper for the [FLAC](https://xiph.org/flac) commands. It aids in listing/rebuilding
