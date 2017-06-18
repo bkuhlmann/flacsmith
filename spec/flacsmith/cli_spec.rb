@@ -6,19 +6,21 @@ RSpec.describe Flacsmith::CLI do
   describe ".start" do
     let(:options) { [] }
     let(:command_line) { Array(command).concat options }
-    let(:cli) { -> { described_class.start command_line } }
+    let(:cli) { described_class.start command_line }
 
     shared_examples_for "a version command" do
       it "prints version" do
         pattern = /#{Flacsmith::Identity.label}\s#{Flacsmith::Identity.version}\n/
-        expect(&cli).to output(pattern).to_stdout
+        result = -> { cli }
+        expect(&result).to output(pattern).to_stdout
       end
     end
 
     shared_examples_for "a help command" do
       it "prints usage" do
         pattern = /#{Flacsmith::Identity.label}\s#{Flacsmith::Identity.version}\scommands:\n/
-        expect(&cli).to output(pattern).to_stdout
+        result = -> { cli }
+        expect(&result).to output(pattern).to_stdout
       end
     end
 
