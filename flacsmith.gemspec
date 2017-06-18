@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor_plus", "~> 5.0"
   spec.add_dependency "refinements", "~> 4.0"
   spec.add_development_dependency "rake", "~> 12.0"
-  spec.add_development_dependency "gemsmith", "~> 9.5"
+  spec.add_development_dependency "gemsmith", "~> 10.0"
   spec.add_development_dependency "pry", "~> 0.10"
   spec.add_development_dependency "pry-byebug", "~> 3.4"
   spec.add_development_dependency "pry-state", "~> 0.1"
