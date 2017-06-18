@@ -2,14 +2,12 @@
 
 require "thor"
 require "thor/actions"
-require "thor_plus/actions"
 require "pathname"
 
 module Flacsmith
   # The Command Line Interface (CLI) for the gem.
   class CLI < Thor
     include Thor::Actions
-    include ThorPlus::Actions
 
     package_name Identity.version_label
 
