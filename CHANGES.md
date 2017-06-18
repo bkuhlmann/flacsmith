@@ -1,3 +1,18 @@
+# v4.3.0 (2017-06-18)
+
+- Added Circle CI support.
+- Added Git Cop code quality task.
+- Updated Guardfile to always run RSpec with documentation format.
+- Updated README headers.
+- Updated Rubocop configuration.
+- Updated command line usage in CLI specs.
+- Updated gem dependencies.
+- Updated to Gemsmith 10.0.0.
+- Updated to Ruby 2.4.1.
+- Removed Thor+ gem.
+- Removed Travis CI support.
+- Refactored CLI version/help specs.
+
 # v4.2.0 (2017-02-26)
 
 - Fixed Travis CI configuration to not update gems.
