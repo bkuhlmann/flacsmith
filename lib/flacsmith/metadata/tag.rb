@@ -10,7 +10,7 @@ module Flacsmith
         ORGANIZATION PERFORMER TITLE TRACKNUMBER VERSION
       ].freeze
 
-      attr_reader :key, :value
+      attr_reader :key
 
       def self.defaults
         KEYS.map { |key| self.for key }
