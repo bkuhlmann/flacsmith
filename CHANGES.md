@@ -1,3 +1,16 @@
+# v4.4.0 (2017-10-29)
+
+- Added Bundler Audit gem.
+- Added dynamic formatting of RSpec output.
+- Updated CONTRIBUTING documentation.
+- Updated GitHub templates.
+- Updated gem dependencies.
+- Updated to Git Cop 1.3.0.
+- Updated to Rubocop 0.50.0.
+- Updated to Rubocop 0.51.0.
+- Updated to Ruby 2.4.2.
+- Removed Pry State gem.
+
 # v4.3.0 (2017-06-18)
 
 - Added Circle CI support.
