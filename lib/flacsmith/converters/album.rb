@@ -15,6 +15,7 @@ module Flacsmith
         @picture_path = Pathname String(picture_path)
         @track_converter = track_converter
       end
+      # rubocop:enable Metrics/ParameterLists
 
       def convert
         input_dir.entries.each do |path|

@@ -21,6 +21,7 @@ module Flacsmith
         @output_dir = Pathname String(output_dir)
         @logger = logger
       end
+      # rubocop:enable Metrics/ParameterLists
 
       def convert
         logger.debug { command_line }
