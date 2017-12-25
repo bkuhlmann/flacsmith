@@ -93,9 +93,9 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
       before { FileUtils.touch input_path }
 
       it "does not generate FLAC file" do
-        begin
-          subject.convert
-        rescue Flacsmith::Errors::Track
+        result = -> { subject.convert }
+
+        expect(&result).to raise_error(Flacsmith::Errors::Track) do
           expect(File.exist?(flac_file)).to eq(false)
         end
       end
