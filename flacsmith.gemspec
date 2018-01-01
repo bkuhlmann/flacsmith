@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email = ["brooke@alchemists.io"]
   spec.homepage = "https://github.com/bkuhlmann/flacsmith"
   spec.summary = "A command line interface for managing FLAC metadata."
-  spec.license = "MIT"
+  spec.license = "Apache-2.0"
 
   if File.exist?(Gem.default_key_path) && File.exist?(Gem.default_cert_path)
     spec.signing_key = Gem.default_key_path
@@ -19,14 +19,14 @@ Gem::Specification.new do |spec|
   end
 
   spec.required_ruby_version = "~> 2.5"
-  spec.add_dependency "refinements", "~> 4.2"
+  spec.add_dependency "refinements", "~> 5.0"
   spec.add_dependency "thor", "~> 0.20"
   spec.add_development_dependency "awesome_print", "~> 1.8"
   spec.add_development_dependency "bond", "~> 0.5"
   spec.add_development_dependency "bundler-audit", "~> 0.6"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 1.0"
-  spec.add_development_dependency "gemsmith", "~> 10.4"
-  spec.add_development_dependency "git-cop", "~> 1.7"
+  spec.add_development_dependency "gemsmith", "~> 11.0"
+  spec.add_development_dependency "git-cop", "~> 2.0"
   spec.add_development_dependency "guard-rspec", "~> 4.7"
   spec.add_development_dependency "hirb", "~> 0.7"
   spec.add_development_dependency "pry", "~> 0.10"
