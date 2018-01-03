@@ -5,7 +5,6 @@
 [![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/1c9fab2b1d26ad819817/test_coverage)](https://codeclimate.com/github/bkuhlmann/flacsmith/test_coverage)
 [![Gemnasium Status](https://gemnasium.com/bkuhlmann/flacsmith.svg)](https://gemnasium.com/bkuhlmann/flacsmith)
 [![Circle CI Status](https://circleci.com/gh/bkuhlmann/flacsmith.svg?style=svg)](https://circleci.com/gh/bkuhlmann/flacsmith)
-[![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg)](https://www.patreon.com/bkuhlmann)
 
 This is a Ruby wrapper for the [FLAC](https://xiph.org/flac) commands. It aids in listing/rebuilding
 metadata for a music collection, artist, album, or song. Having metadata information that reflects
