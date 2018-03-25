@@ -8,7 +8,7 @@ module Flacsmith
       attr_reader :paths
 
       def initialize path
-        @paths = Pathname.glob "#{path.chomp ::File::SEPARATOR}/**/*.flac"
+        @paths = Pathname.glob "#{path.to_s.chomp ::File::SEPARATOR}/**/*.flac"
       end
 
       def build
