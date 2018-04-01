@@ -1,4 +1,4 @@
-# v5.1.0 (2018-04-01)
+# 5.1.0 (2018-04-01)
 
 - Fixed gemspec issues with missing gem signing key/certificate.
 - Added gemspec metadata for source, changes, and issue tracker URLs.
@@ -13,7 +13,7 @@
 - Removed Patreon badge from README.
 - Refactored temp dir shared context as a pathname.
 
-# v5.0.0 (2018-01-01)
+# 5.0.0 (2018-01-01)
 
 - Updated Code Climate badges.
 - Updated Code Climate configuration to Version 2.0.0.
@@ -24,12 +24,12 @@
 - Removed documentation for secure installs.
 - Refactored code to use Ruby 2.5.0 `Array#append` syntax.
 
-# v4.4.1 (2017-11-19)
+# 4.4.1 (2017-11-19)
 
 - Updated to Git Cop 1.7.0.
 - Updated to Rake 12.3.0.
 
-# v4.4.0 (2017-10-29)
+# 4.4.0 (2017-10-29)
 
 - Added Bundler Audit gem.
 - Added dynamic formatting of RSpec output.
@@ -42,7 +42,7 @@
 - Updated to Ruby 2.4.2.
 - Removed Pry State gem.
 
-# v4.3.0 (2017-06-18)
+# 4.3.0 (2017-06-18)
 
 - Added Circle CI support.
 - Added Git Cop code quality task.
@@ -57,7 +57,7 @@
 - Removed Travis CI support.
 - Refactored CLI version/help specs.
 
-# v4.2.0 (2017-02-26)
+# 4.2.0 (2017-02-26)
 
 - Fixed Travis CI configuration to not update gems.
 - Added CLI `--convert` option for converting audio.
@@ -91,7 +91,7 @@
 - Refactored FLAC metadata updater as builder.
 - Refactored Reek and Rubocop issues.
 
-# v4.1.0 (2016-12-18)
+# 4.1.0 (2016-12-18)
 
 - Fixed Rakefile support for RSpec, Reek, Rubocop, and SCSS Lint.
 - Updated Circle CI configuration to use latest packages.
@@ -102,7 +102,7 @@
 - Updated to Ruby 2.3.2.
 - Updated to Ruby 2.3.3.
 
-# v4.0.0 (2016-11-14)
+# 4.0.0 (2016-11-14)
 
 - Fixed Rakefile to safely load Gemsmith tasks.
 - Fixed Ruby pragma.
@@ -141,7 +141,7 @@
 - Refactored source requirements.
 - Refactored specs to *flacsmith* folder.
 
-# v3.0.0 (2016-01-20)
+# 3.0.0 (2016-01-20)
 
 - Added IRB development console Rake task support.
 - Updated gem binary shebang comment format.
@@ -149,7 +149,7 @@
 - Removed RSpec default monkey patching behavior.
 - Removed Ruby 2.1.x and 2.2.x support.
 
-# v2.3.0 (2015-12-02)
+# 2.3.0 (2015-12-02)
 
 - Fixed README URLs to use HTTPS schemes where possible.
 - Fixed README test command instructions.
@@ -174,7 +174,7 @@
 - Removed Travis CI Docker requirements.
 - Removed unnecessary exclusions from .gitignore.
 
-# v2.2.0 (2015-07-05)
+# 2.2.0 (2015-07-05)
 
 - Removed JRuby support (no longer officially supported).
 - Fixed secure gem installs (new cert has 10 year lifespan).
@@ -182,12 +182,12 @@
 - Added CLI process title support.
 - Added code of conduct documentation.
 
-# v2.1.0 (2015-03-12)
+# 2.1.0 (2015-03-12)
 
 - Fixed bug where track label prefixed with numbers would be lost.
 - Updated to Ruby 2.2.1.
 
-# v2.0.0 (2015-01-01)
+# 2.0.0 (2015-01-01)
 
 - Removed Ruby 2.0.0 support.
 - Removed Rubinius support.
@@ -196,7 +196,7 @@
 - Updated spec helper to comment custom config until needed.
 - Updated gemspec to use RUBY_GEM_SECURITY env var for gem certs.
 
-# v1.0.0 (2014-10-22)
+# 1.0.0 (2014-10-22)
 
 - Updated to Ruby 2.1.3.
 - Updated to Rubinius 2.2.10.
@@ -208,13 +208,13 @@
 - Added silencing of metaflac native errors.
 - Refactored RSpec configuration, support, and kit folders.
 
-# v0.2.0 (2014-07-06)
+# 0.2.0 (2014-07-06)
 
 - Added Code Climate test coverage support.
 - Updated to Ruby 2.1.2.
 - Updated file metadata rebuilding messages to say "Rebuilding" instead of "processing".
 - Updated gem-public.pem for gem install certificate chain.
 
-# v0.1.0 (2014-04-21)
+# 0.1.0 (2014-04-21)
 
 - Initial version.
