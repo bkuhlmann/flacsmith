@@ -32,14 +32,15 @@ few).
 
 ## Features
 
-- Lists metadata for a file, album, artist, or music collection.
+- Converts source audio (AIFF) to FLAC.
 - Rebuilds metadata for a file, album, artist, or music collection.
+- Lists metadata for a file, album, artist, or music collection.
 
 ## Requirements
 
 0. A UNIX-based system.
 0. [Ruby 2.5.x](https://www.ruby-lang.org).
-0. [FLAC](https://xiph.org/flac) (for OSX, run: `brew install flac`).
+0. [FLAC](https://xiph.org/flac) (i.e. `brew install flac`).
 
 ## Setup
 
@@ -70,22 +71,22 @@ be applied to a single song, album, artist, or a complete music collection.
 The following is an example of possible workflows:
 
 - Convert AIFF files to FLAC files:
-  0. Run: `flacsmith -C <input dir> <output dir>`
+  - Run: `flacsmith -C <input dir> <output dir>`
 - List metadata for an artist:
-  0. Run: `flacsmith -l <artist>`
+  - Run: `flacsmith -l <artist>`
 - List metadata for an album:
-  0. Run: `flacsmith -l <artist>/<album>`
+  - Run: `flacsmith -l <artist>/<album>`
 - List metadata for collection:
-  0. Run: `flacsmith -l .`
+  - Run: `flacsmith -l .`
 - Rebuild metadata for a new album:
-  0. Copy the album to `<collecton>/<artist>/<album>`
-  0. Run: `flacsmith -r <collecton>/<artist>/<album>`
+  - Copy the album to `<collecton>/<artist>/<album>`
+  - Run: `flacsmith -r <collecton>/<artist>/<album>`
 - Rebuild metadata for a song:
-  0. Change directory to `<collecton>/<artist></album>`
-  0. Run: `mv <old name>.flac` to `<new name>.flac`
-  0. Run: `flacsmith -r <new name>.flac`
+  - Change directory to `<collecton>/<artist></album>`
+  - Run: `mv <old name>.flac` to `<new name>.flac`
+  - Run: `flacsmith -r <new name>.flac`
 - Rebuild metadata for entire music collection:
-  0. Run: `flacsmith -r .`
+  - Run: `flacsmith -r .`
 
 ## Tests
 
