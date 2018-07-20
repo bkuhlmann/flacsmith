@@ -38,9 +38,9 @@ few).
 
 ## Requirements
 
-0. A UNIX-based system.
-0. [Ruby 2.5.x](https://www.ruby-lang.org).
-0. [FLAC](https://xiph.org/flac) (i.e. `brew install flac`).
+1. A UNIX-based system.
+1. [Ruby 2.5.x](https://www.ruby-lang.org).
+1. [FLAC](https://xiph.org/flac) (i.e. `brew install flac`).
 
 ## Setup
 
