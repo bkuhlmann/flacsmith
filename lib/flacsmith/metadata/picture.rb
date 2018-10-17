@@ -21,6 +21,7 @@ module Flacsmith
 
       def to_s
         return "" unless exist?
+
         [type, "image/jpeg", description, dimensions, path].join "|"
       end
 
@@ -32,6 +33,7 @@ module Flacsmith
 
       def compute_path path
         return "" if String(path).empty?
+
         Shellwords.escape path
       end
     end

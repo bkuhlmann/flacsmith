@@ -28,6 +28,7 @@ module Flacsmith
 
       def value
         return initial_value if initial_value.empty?
+
         Shellwords.escape initial_value
       end
 

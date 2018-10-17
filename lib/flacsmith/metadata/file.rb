@@ -24,6 +24,7 @@ module Flacsmith
       def number
         return "" unless last_node
         return "" unless last_node.match? NUMBER_REGEX
+
         String(last_node[NUMBER_REGEX]).rjust 2, "0"
       end
 

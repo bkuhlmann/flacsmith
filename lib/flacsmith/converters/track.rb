@@ -57,6 +57,7 @@ module Flacsmith
 
       def output_path
         return Pathname("") unless input_path.exist?
+
         file = Metadata::File.new input_path
         Pathname.new "#{output_dir}/#{file.name}.flac"
       end
