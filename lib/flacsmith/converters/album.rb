@@ -6,7 +6,7 @@ module Flacsmith
   module Converters
     # An album converter for converting an album of files into FLAC files.
     class Album
-      FILE_EXTENSIONS = /\.(aif|aiff)/
+      FILE_EXTENSIONS = /\.(aif|aiff)/.freeze
 
       # rubocop:disable Metrics/ParameterLists
       def initialize input_dir:, output_dir: "", picture_path: "", track_converter: Track
