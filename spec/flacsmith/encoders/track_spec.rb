@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Flacsmith::Converters::Track, :temp_dir do
+RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
   let(:input_path) { File.join Bundler.root, "spec", "support", "files", "sample.aiff" }
   let(:image_path) { File.join Bundler.root, "spec", "support", "files", "sample.jpg" }
   let(:output_dir) { temp_dir }
@@ -16,22 +16,22 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
                         logger: logger
   end
 
-  describe "#convert" do
+  describe "#encode" do
     let(:flac_file) { File.join temp_dir, "sample.flac" }
 
     context "with valid input" do
-      it "converts input file to FLAC file" do
-        subject.convert
+      it "encodes input file to FLAC file" do
+        subject.encode
         expect(File.exist?(flac_file)).to eq(true)
       end
 
-      it "logs empty message for standard output" do
-        subject.convert
+      it "logs empty message to standard output" do
+        subject.encode
         expect(buffer.string).to match(/.+INFO\s\-\-\s\:\s\n/)
       end
 
       it "answers true" do
-        expect(subject.convert).to eq(true)
+        expect(subject.encode).to eq(true)
       end
     end
 
@@ -47,23 +47,23 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
                             logger: logger
       end
 
-      it "escapes and converts FLAC file format" do
-        subject.convert
+      it "escapes and encodes to FLAC file format" do
+        subject.encode
         expect(File.exist?(flac_file)).to eq(true)
       end
 
-      it "logs empty message for standard output" do
-        subject.convert
+      it "logs empty message to standard output" do
+        subject.encode
         expect(buffer.string).to match(/.+INFO\s\-\-\s\:\s\n/)
       end
 
       it "answers true" do
-        expect(subject.convert).to eq(true)
+        expect(subject.encode).to eq(true)
       end
     end
 
-    context "with special characters in picture file name" do
-      let(:special_path) { File.join temp_dir, %("test picture".jpg) }
+    context "with special characters in image file name" do
+      let(:special_path) { File.join temp_dir, %("test image".jpg) }
       before { FileUtils.cp image_path, special_path }
 
       subject do
@@ -73,18 +73,18 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
                             logger: logger
       end
 
-      it "escapes and converts FLAC file format" do
-        subject.convert
+      it "escapes and encodes to FLAC file format" do
+        subject.encode
         expect(File.exist?(flac_file)).to eq(true)
       end
 
-      it "logs empty message for standard output" do
-        subject.convert
+      it "logs empty message to standard output" do
+        subject.encode
         expect(buffer.string).to match(/.+INFO\s\-\-\s\:\s\n/)
       end
 
       it "answers true" do
-        expect(subject.convert).to eq(true)
+        expect(subject.encode).to eq(true)
       end
     end
 
@@ -92,8 +92,8 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
       let(:input_path) { File.join temp_dir, "sample.aiff" }
       before { FileUtils.touch input_path }
 
-      it "does not generate FLAC file" do
-        result = -> { subject.convert }
+      it "does not encode FLAC file" do
+        result = -> { subject.encode }
 
         expect(&result).to raise_error(Flacsmith::Errors::Track) do
           expect(File.exist?(flac_file)).to eq(false)
@@ -101,7 +101,7 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
       end
 
       it "fails with track error" do
-        result = -> { subject.convert }
+        result = -> { subject.encode }
         regex = /.*ERROR\:.+you\smust\sspecify\sa\svalue.*/
 
         expect(&result).to raise_error(Flacsmith::Errors::Track, regex)
@@ -111,18 +111,18 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
     context "with missing picture" do
       let(:image_path) { nil }
 
-      it "converts input file to FLAC file" do
-        subject.convert
+      it "encodes input file to FLAC file" do
+        subject.encode
         expect(File.exist?(flac_file)).to eq(true)
       end
 
-      it "logs empty message for standard output" do
-        subject.convert
+      it "logs empty message to standard output" do
+        subject.encode
         expect(buffer.string).to match(/.+INFO\s\-\-\s\:\s\n/)
       end
 
       it "answers true" do
-        expect(subject.convert).to eq(true)
+        expect(subject.encode).to eq(true)
       end
     end
   end

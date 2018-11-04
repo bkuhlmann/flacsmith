@@ -23,11 +23,11 @@ module Flacsmith
                   desc: "File path to album image.",
                   type: :string, default: ""
     def encode input_dir, output_dir
-      say "Encoding: #{input_dir} -> #{output_dir}...\n\n"
-      converter = Converters::Album.new input_dir: input_dir,
-                                        output_dir: output_dir,
-                                        image_path: options.image
-      converter.convert
+      say "Encoding: #{input_dir} to #{output_dir}...\n\n"
+      encoder = Encoders::Album.new input_dir: input_dir,
+                                    output_dir: output_dir,
+                                    image_path: options.image
+      encoder.encode
       say "Audio encoded."
     end
 

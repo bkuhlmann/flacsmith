@@ -6,8 +6,8 @@ require "shellwords"
 require "logger"
 
 module Flacsmith
-  module Converters
-    # A track converter for converting a file into a FLAC file.
+  module Encoders
+    # A track encoder for encoding a file as a FLAC file.
     class Track
       DEFAULT_OPTIONS = [
         "--verify",
@@ -23,7 +23,7 @@ module Flacsmith
       end
       # rubocop:enable Metrics/ParameterLists
 
-      def convert
+      def encode
         logger.debug { command_line }
         execute_command
         true
