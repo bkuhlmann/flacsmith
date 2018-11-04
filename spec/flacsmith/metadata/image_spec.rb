@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Flacsmith::Metadata::Picture do
+RSpec.describe Flacsmith::Metadata::Image do
   let(:path) { File.join Bundler.root, "spec", "support", "files", "sample.jpg" }
   subject { described_class.new path }
 

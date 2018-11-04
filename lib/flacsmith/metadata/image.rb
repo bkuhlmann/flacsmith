@@ -4,7 +4,7 @@ require "shellwords"
 
 module Flacsmith
   module Metadata
-    class Picture
+    class Image
       def initialize path, type: 3, description: "Cover"
         @path = compute_path path
         @type = type

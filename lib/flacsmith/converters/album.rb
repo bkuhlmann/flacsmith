@@ -9,10 +9,10 @@ module Flacsmith
       FILE_EXTENSIONS = /\.(aif|aiff)/.freeze
 
       # rubocop:disable Metrics/ParameterLists
-      def initialize input_dir:, output_dir: "", picture_path: "", track_converter: Track
+      def initialize input_dir:, output_dir: "", image_path: "", track_converter: Track
         @input_dir = Pathname String(input_dir)
         @output_dir = Pathname String(output_dir)
-        @picture_path = Pathname String(picture_path)
+        @image_path = Pathname String(image_path)
         @track_converter = track_converter
       end
       # rubocop:enable Metrics/ParameterLists
@@ -23,7 +23,7 @@ module Flacsmith
 
           track_converter.new(
             input_path: File.join(input_dir, path),
-            picture_path: picture_path,
+            image_path: image_path,
             output_dir: output_dir
           ).convert
         end
@@ -31,7 +31,7 @@ module Flacsmith
 
       private
 
-      attr_reader :input_dir, :output_dir, :picture_path, :track_converter
+      attr_reader :input_dir, :output_dir, :image_path, :track_converter
     end
   end
 end

@@ -4,10 +4,10 @@ require "spec_helper"
 
 RSpec.describe Flacsmith::Converters::Album, :temp_dir do
   let(:input_dir) { File.join Bundler.root, "spec", "support", "files" }
-  let(:picture_path) { File.join Bundler.root, "spec", "support", "files", "sample.jpg" }
+  let(:image_path) { File.join Bundler.root, "spec", "support", "files", "sample.jpg" }
   let(:output_dir) { temp_dir }
   subject do
-    described_class.new input_dir: input_dir, output_dir: output_dir, picture_path: picture_path
+    described_class.new input_dir: input_dir, output_dir: output_dir, image_path: image_path
   end
 
   describe "#convert" do

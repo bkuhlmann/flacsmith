@@ -11,13 +11,13 @@ module Flacsmith
     class Track
       DEFAULT_OPTIONS = [
         "--verify",
-        %(--picture="<picture_path>")
+        %(--picture="<image_path>")
       ].freeze
 
       # rubocop:disable Metrics/ParameterLists
-      def initialize input_path:, picture_path: "", output_dir: "", logger: Logger.new(STDOUT)
+      def initialize input_path:, image_path: "", output_dir: "", logger: Logger.new(STDOUT)
         @input_path = Pathname String(input_path)
-        @picture = Metadata::Picture.new picture_path
+        @picture = Metadata::Image.new image_path
         @output_dir = Pathname String(output_dir)
         @logger = logger
       end
@@ -36,8 +36,8 @@ module Flacsmith
       def substituted_options
         DEFAULT_OPTIONS.map do |option|
           case option
-            when /<picture_path>/
-              option.sub("<picture_path>", picture) if picture.exist?
+            when /<image_path>/
+              option.sub("<image_path>", picture) if picture.exist?
             else option
           end
         end

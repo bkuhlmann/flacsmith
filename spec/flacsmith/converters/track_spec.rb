@@ -4,14 +4,14 @@ require "spec_helper"
 
 RSpec.describe Flacsmith::Converters::Track, :temp_dir do
   let(:input_path) { File.join Bundler.root, "spec", "support", "files", "sample.aiff" }
-  let(:picture_path) { File.join Bundler.root, "spec", "support", "files", "sample.jpg" }
+  let(:image_path) { File.join Bundler.root, "spec", "support", "files", "sample.jpg" }
   let(:output_dir) { temp_dir }
   let(:buffer) { StringIO.new }
   let(:logger) { Logger.new buffer }
 
   subject do
     described_class.new input_path: input_path,
-                        picture_path: picture_path,
+                        image_path: image_path,
                         output_dir: output_dir,
                         logger: logger
   end
@@ -42,7 +42,7 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
 
       subject do
         described_class.new input_path: special_path,
-                            picture_path: picture_path,
+                            image_path: image_path,
                             output_dir: output_dir,
                             logger: logger
       end
@@ -64,11 +64,11 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
 
     context "with special characters in picture file name" do
       let(:special_path) { File.join temp_dir, %("test picture".jpg) }
-      before { FileUtils.cp picture_path, special_path }
+      before { FileUtils.cp image_path, special_path }
 
       subject do
         described_class.new input_path: input_path,
-                            picture_path: special_path,
+                            image_path: special_path,
                             output_dir: output_dir,
                             logger: logger
       end
@@ -109,7 +109,7 @@ RSpec.describe Flacsmith::Converters::Track, :temp_dir do
     end
 
     context "with missing picture" do
-      let(:picture_path) { nil }
+      let(:image_path) { nil }
 
       it "converts input file to FLAC file" do
         subject.convert
