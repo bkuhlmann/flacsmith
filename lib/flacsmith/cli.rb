@@ -16,19 +16,19 @@ module Flacsmith
       super args, options, config
     end
 
-    desc "-C, [--convert=INPUT_DIR OUTPUT_DIR]", "Convert source audio to FLAC audio."
-    map %w[-C --convert] => :convert
-    method_option :picture,
-                  aliases: "-p",
-                  desc: "File path to cover art.",
+    desc "-e, [--encode=INPUT_DIR OUTPUT_DIR]", "Encode source audio as FLAC audio."
+    map %w[-e --encode] => :encode
+    method_option :image,
+                  aliases: "-i",
+                  desc: "File path to album image.",
                   type: :string, default: ""
-    def convert input_dir, output_dir
-      say "Converting audio: #{input_dir} -> #{output_dir}...\n\n"
+    def encode input_dir, output_dir
+      say "Encoding: #{input_dir} -> #{output_dir}...\n\n"
       converter = Converters::Album.new input_dir: input_dir,
                                         output_dir: output_dir,
-                                        picture_path: options.picture
+                                        image_path: options.image
       converter.convert
-      say "Audio converted."
+      say "Audio encoded."
     end
 
     desc "-l, [--list=PATH]", "List track metadata for given folder/file structure."
