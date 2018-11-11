@@ -112,7 +112,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
     end
   end
 
-  describe "title" do
+  describe "#title" do
     context "with parent directories" do
       it "answers title" do
         expect(subject.title).to eq "Track"

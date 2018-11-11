@@ -7,7 +7,7 @@ module Flacsmith
     class File
       using Refinements::Arrays
 
-      NUMBER_REGEX = /\A\d+/.freeze
+      NUMBER_PATTERN = /\A\d+/.freeze
 
       def initialize path
         @path = String path
@@ -23,13 +23,13 @@ module Flacsmith
 
       def number
         return "" unless last_node
-        return "" unless last_node.match? NUMBER_REGEX
+        return "" unless last_node.match? NUMBER_PATTERN
 
-        String(last_node[NUMBER_REGEX]).rjust 2, "0"
+        String(last_node[NUMBER_PATTERN]).rjust 2, "0"
       end
 
       def title
-        String(last_node).gsub(NUMBER_REGEX, "").gsub(/\..+$/, "").strip
+        String(last_node).gsub(NUMBER_PATTERN, "").gsub(/\..+$/, "").strip
       end
 
       def name
