@@ -96,11 +96,9 @@ RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
       before { FileUtils.touch input_path }
 
       it "does not encode FLAC file" do
-        result = -> { track.encode }
-
-        expect(&result).to raise_error(Flacsmith::Errors::Track) do
-          expect(File.exist?(flac_file)).to eq(false)
-        end
+        track.encode
+      rescue Flacsmith::Errors::Track
+        expect(File.exist?(flac_file)).to eq(false)
       end
 
       it "fails with track error" do
