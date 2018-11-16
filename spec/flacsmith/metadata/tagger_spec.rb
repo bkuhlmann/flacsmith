@@ -3,6 +3,8 @@
 require "spec_helper"
 
 RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
+  subject(:tagger) { described_class.new test_file }
+
   let(:album_path) { Pathname.new "#{temp_dir}/Test Artist/Test Album" }
   let(:sample_file) { Pathname.new "#{Dir.pwd}/spec/support/files/sample.flac" }
   let(:test_file) { Pathname.new "#{album_path}/01 Test Title.flac" }
@@ -31,8 +33,6 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
     default_hash.map { |key, value| Flacsmith::Metadata::Tag.for key, value }
   end
 
-  subject { described_class.new test_file }
-
   before do
     FileUtils.mkdir_p album_path
     FileUtils.cp sample_file, test_file
@@ -41,7 +41,7 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
   describe "#read" do
     context "with default tags" do
       it "answers default tag hash" do
-        expect(subject.read).to eq(default_hash)
+        expect(tagger.read).to eq(default_hash)
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:tag) { Flacsmith::Metadata::Tag.for "VERSION" }
 
       it "answers single tag hash" do
-        expect(subject.read(tags: tag)).to eq("VERSION" => "1.0.0")
+        expect(tagger.read(tags: tag)).to eq("VERSION" => "1.0.0")
       end
     end
 
@@ -62,7 +62,7 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       end
 
       it "answers multiple tag hash" do
-        expect(subject.read(tags: tags)).to eq(
+        expect(tagger.read(tags: tags)).to eq(
           "COPYRIGHT" => "2014",
           "LICENSE" => "MIT"
         )
@@ -71,13 +71,13 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
 
     context "with nil tags" do
       it "answers empty hash" do
-        expect(subject.read(tags: nil)).to eq({})
+        expect(tagger.read(tags: nil)).to eq({})
       end
     end
 
     context "with empty tags" do
       it "answers empty hash" do
-        expect(subject.read(tags: [])).to eq({})
+        expect(tagger.read(tags: [])).to eq({})
       end
     end
   end
@@ -85,8 +85,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
   describe "#add" do
     context "with default tags" do
       it "answers empty hash", :aggregate_failures do
-        expect(subject.add).to eq({})
-        expect(subject.read).to eq(default_hash)
+        expect(tagger.add).to eq({})
+        expect(tagger.read).to eq(default_hash)
       end
     end
 
@@ -95,8 +95,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: tag} }
 
       it "answers single tag hash", :aggregate_failures do
-        expect(subject.add(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq("ARTIST" => "Test")
+        expect(tagger.add(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq("ARTIST" => "Test")
       end
     end
 
@@ -111,8 +111,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: tags} }
 
       it "answers multiple tag hash", :aggregate_failures do
-        expect(subject.add(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq(
+        expect(tagger.add(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq(
           "ARTIST" => "Test",
           "ALBUM" => "The Album"
         )
@@ -123,8 +123,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: nil} }
 
       it "answers empty hash", :aggregate_failures do
-        expect(subject.add(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq({})
+        expect(tagger.add(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq({})
       end
     end
 
@@ -132,8 +132,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: []} }
 
       it "answers empty hash", :aggregate_failures do
-        expect(subject.add(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq({})
+        expect(tagger.add(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq({})
       end
     end
   end
@@ -141,8 +141,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
   describe "#remove" do
     context "with default tags" do
       it "answers empty hash", :aggregate_failures do
-        expect(subject.remove).to eq({})
-        expect(subject.read).to eq(default_hash)
+        expect(tagger.remove).to eq({})
+        expect(tagger.read).to eq(default_hash)
       end
     end
 
@@ -151,8 +151,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: tag} }
 
       it "answers empty hash", :aggregate_failures do
-        expect(subject.remove(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq({})
+        expect(tagger.remove(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq({})
       end
     end
 
@@ -167,8 +167,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: tags} }
 
       it "answers empty hash", :aggregate_failures do
-        expect(subject.remove(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq({})
+        expect(tagger.remove(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq({})
       end
     end
 
@@ -176,8 +176,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: nil} }
 
       it "answers empty hash", :aggregate_failures do
-        expect(subject.remove(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq({})
+        expect(tagger.remove(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq({})
       end
     end
 
@@ -185,8 +185,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: []} }
 
       it "answers empty hash", :aggregate_failures do
-        expect(subject.remove(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq({})
+        expect(tagger.remove(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq({})
       end
     end
   end
@@ -194,8 +194,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
   describe "#update" do
     context "with default tags" do
       it "answers empty tags", :aggregate_failures do
-        expect(subject.update).to eq({})
-        expect(subject.read).to eq(default_hash)
+        expect(tagger.update).to eq({})
+        expect(tagger.read).to eq(default_hash)
       end
     end
 
@@ -210,8 +210,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: tags} }
 
       it "answers multiple tag hash", :aggregate_failures do
-        expect(subject.update(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq(
+        expect(tagger.update(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq(
           "ARTIST" => "Test",
           "ALBUM" => "The Album"
         )
@@ -222,8 +222,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: nil} }
 
       it "answers empty hash", :aggregate_failures do
-        expect(subject.update(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq({})
+        expect(tagger.update(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq({})
       end
     end
 
@@ -231,8 +231,8 @@ RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
       let(:parameters) { {tags: []} }
 
       it "answers empty hash", :aggregate_failures do
-        expect(subject.update(parameters)).to eq({})
-        expect(subject.read(parameters)).to eq({})
+        expect(tagger.update(parameters)).to eq({})
+        expect(tagger.read(parameters)).to eq({})
       end
     end
   end

@@ -3,19 +3,20 @@
 require "spec_helper"
 
 RSpec.describe Flacsmith::Metadata::Image do
+  subject(:image) { described_class.new path }
+
   let(:path) { File.join Bundler.root, "spec", "support", "files", "sample.jpg" }
-  subject { described_class.new path }
 
   describe "#dimensions" do
     it "answers empty string" do
-      expect(subject.dimensions).to eq("")
+      expect(image.dimensions).to eq("")
     end
   end
 
   describe "#exist?" do
     context "when picture exists" do
       it "answers true" do
-        expect(subject.exist?).to eq(true)
+        expect(image.exist?).to eq(true)
       end
     end
 
@@ -23,7 +24,7 @@ RSpec.describe Flacsmith::Metadata::Image do
       let(:path) { "" }
 
       it "answers false" do
-        expect(subject.exist?).to eq(false)
+        expect(image.exist?).to eq(false)
       end
     end
   end
@@ -31,31 +32,31 @@ RSpec.describe Flacsmith::Metadata::Image do
   shared_examples_for "a string" do |method|
     context "with default type and description" do
       it "answers default picture metadata" do
-        expect(subject.public_send(method)).to eq("3|image/jpeg|Cover||#{path}")
+        expect(image.public_send(method)).to eq("3|image/jpeg|Cover||#{path}")
       end
     end
 
     context "with custom type and description" do
-      subject { described_class.new path, type: 5, description: "Example" }
+      subject(:image) { described_class.new path, type: 5, description: "Example" }
 
       it "answers custom picture metadata" do
-        expect(subject.public_send(method)).to eq("5|image/jpeg|Example||#{path}")
+        expect(image.public_send(method)).to eq("5|image/jpeg|Example||#{path}")
       end
     end
 
     context "with missing type" do
-      subject { described_class.new path, type: nil }
+      subject(:image) { described_class.new path, type: nil }
 
       it "answers picture metadata without type" do
-        expect(subject.public_send(method)).to eq("|image/jpeg|Cover||#{path}")
+        expect(image.public_send(method)).to eq("|image/jpeg|Cover||#{path}")
       end
     end
 
     context "with missing description" do
-      subject { described_class.new path, description: nil }
+      subject(:image) { described_class.new path, description: nil }
 
       it "answers picture metadata without type" do
-        expect(subject.public_send(method)).to eq("3|image/jpeg|||#{path}")
+        expect(image.public_send(method)).to eq("3|image/jpeg|||#{path}")
       end
     end
 
@@ -63,7 +64,7 @@ RSpec.describe Flacsmith::Metadata::Image do
       let(:path) { "" }
 
       it "answers empty string" do
-        expect(subject.public_send(method)).to eq("")
+        expect(image.public_send(method)).to eq("")
       end
     end
   end

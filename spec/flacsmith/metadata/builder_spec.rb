@@ -3,9 +3,10 @@
 require "spec_helper"
 
 RSpec.describe Flacsmith::Metadata::Builder, :temp_dir do
+  subject(:builder) { described_class.new temp_dir }
+
   let(:sample_file) { Pathname.new "#{Dir.pwd}/spec/support/files/sample.flac" }
   let(:album_path) { Pathname.new "#{temp_dir}/Test Artist/Test Album" }
-  subject { described_class.new temp_dir }
 
   before do
     FileUtils.mkdir_p album_path
@@ -20,7 +21,7 @@ RSpec.describe Flacsmith::Metadata::Builder, :temp_dir do
 
     context "when paths exist" do
       it "answers array of FLAC paths" do
-        expect(subject.paths).to eq(proof_paths)
+        expect(builder.paths).to eq(proof_paths)
       end
     end
 
@@ -28,22 +29,22 @@ RSpec.describe Flacsmith::Metadata::Builder, :temp_dir do
       before { FileUtils.rm_rf album_path }
 
       it "answers empty array" do
-        expect(subject.paths).to eq([])
+        expect(builder.paths).to eq([])
       end
     end
 
     context "when path has trailing slash" do
-      subject { described_class.new "#{temp_dir}/" }
+      subject(:builder) { described_class.new "#{temp_dir}/" }
 
       it "answers array of FLAC paths" do
-        expect(subject.paths).to eq(proof_paths)
+        expect(builder.paths).to eq(proof_paths)
       end
     end
   end
 
   describe "#build" do
     it "updates track metadata", :aggregate_failures do
-      subject.build
+      builder.build
 
       Dir["#{album_path}**/*"].sort.each.with_index do |path, index|
         file = Flacsmith::Metadata::File.new path

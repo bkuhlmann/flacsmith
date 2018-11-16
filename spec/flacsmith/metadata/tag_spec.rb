@@ -35,30 +35,30 @@ RSpec.describe Flacsmith::Metadata::Tag do
 
   describe "#value" do
     it "defaults to an empty string" do
-      subject = described_class.new "ARTIST"
-      expect(subject.value).to eq("")
+      tag = described_class.new "ARTIST"
+      expect(tag.value).to eq("")
     end
 
     it "is escaped for use on the command line" do
-      subject = described_class.new "ALBUM", %(O'ver the "Hills")
-      expect(subject.value).to eq("O\\'ver\\ the\\ \\\"Hills\\\"")
+      tag = described_class.new "ALBUM", %(O'ver the "Hills")
+      expect(tag.value).to eq("O\\'ver\\ the\\ \\\"Hills\\\"")
     end
   end
 
   shared_examples_for "a string" do |method|
     context "with key and value" do
-      subject { described_class.new "ARTIST", "Santana" }
+      subject(:tag) { described_class.new "ARTIST", "Santana" }
 
       it "answers key and value string" do
-        expect(subject.public_send(method)).to eq("ARTIST=Santana")
+        expect(tag.public_send(method)).to eq("ARTIST=Santana")
       end
     end
 
     context "with key" do
-      subject { described_class.new "ARTIST" }
+      subject(:tag) { described_class.new "ARTIST" }
 
       it "answers key and empty value string" do
-        expect(subject.public_send(method)).to eq("ARTIST=")
+        expect(tag.public_send(method)).to eq("ARTIST=")
       end
     end
   end

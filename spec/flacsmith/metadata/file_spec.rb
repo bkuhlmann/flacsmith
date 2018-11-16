@@ -3,13 +3,14 @@
 require "spec_helper"
 
 RSpec.describe Flacsmith::Metadata::File, :temp_dir do
+  subject(:file) { described_class.new path }
+
   let(:path) { "/Artist/Album/Track.flac" }
-  subject { described_class.new path }
 
   describe "#artist" do
     context "with artist and album directories" do
       it "answers album" do
-        expect(subject.artist).to eq("Artist")
+        expect(file.artist).to eq("Artist")
       end
     end
 
@@ -17,7 +18,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "/Album/Track.flac" }
 
       it "answers empty string" do
-        expect(subject.artist).to eq("")
+        expect(file.artist).to eq("")
       end
     end
 
@@ -25,7 +26,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "Track.flac" }
 
       it "answers empty string" do
-        expect(subject.artist).to eq("")
+        expect(file.artist).to eq("")
       end
     end
 
@@ -33,7 +34,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "" }
 
       it "answers empty string" do
-        expect(subject.artist).to eq("")
+        expect(file.artist).to eq("")
       end
     end
   end
@@ -41,7 +42,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
   describe "#album" do
     context "with album directory" do
       it "answers album" do
-        expect(subject.album).to eq("Album")
+        expect(file.album).to eq("Album")
       end
     end
 
@@ -49,7 +50,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "Track.flac" }
 
       it "answers empty string" do
-        expect(subject.album).to eq("")
+        expect(file.album).to eq("")
       end
     end
 
@@ -57,7 +58,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "" }
 
       it "answers empty string" do
-        expect(subject.album).to eq("")
+        expect(file.album).to eq("")
       end
     end
   end
@@ -67,7 +68,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "1 Track.flac" }
 
       it "answers zero padded number" do
-        expect(subject.number).to eq "01"
+        expect(file.number).to eq "01"
       end
     end
 
@@ -75,7 +76,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "12 Track.flac" }
 
       it "answers double digit number" do
-        expect(subject.number).to eq "12"
+        expect(file.number).to eq "12"
       end
     end
 
@@ -83,7 +84,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "5 18 and Life.flac" }
 
       it "answers track number only" do
-        expect(subject.number).to eq("05")
+        expect(file.number).to eq("05")
       end
     end
 
@@ -91,7 +92,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "Track.flac" }
 
       it "answers double zeros" do
-        expect(subject.number).to eq ""
+        expect(file.number).to eq ""
       end
     end
 
@@ -99,7 +100,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "/Some/Path/To/Artist/and/Album/2 Paranoid.flac" }
 
       it "answers track number only" do
-        expect(subject.number).to eq("02")
+        expect(file.number).to eq("02")
       end
     end
 
@@ -107,7 +108,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "" }
 
       it "answers empty string" do
-        expect(subject.number).to eq("")
+        expect(file.number).to eq("")
       end
     end
   end
@@ -115,7 +116,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
   describe "#title" do
     context "with parent directories" do
       it "answers title" do
-        expect(subject.title).to eq "Track"
+        expect(file.title).to eq "Track"
       end
     end
 
@@ -123,7 +124,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "Track.flac" }
 
       it "answers title" do
-        expect(subject.title).to eq "Track"
+        expect(file.title).to eq "Track"
       end
     end
 
@@ -131,7 +132,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "01 Track.flac" }
 
       it "answers title" do
-        expect(subject.title).to eq "Track"
+        expect(file.title).to eq "Track"
       end
     end
 
@@ -139,7 +140,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "01Track.flac" }
 
       it "answers title" do
-        expect(subject.title).to eq "Track"
+        expect(file.title).to eq "Track"
       end
     end
 
@@ -147,7 +148,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "5 18 and Life.flac" }
 
       it "answers title" do
-        expect(subject.title).to eq("18 and Life")
+        expect(file.title).to eq("18 and Life")
       end
     end
 
@@ -155,7 +156,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "Test.test" }
 
       it "answers title" do
-        expect(subject.title).to eq("Test")
+        expect(file.title).to eq("Test")
       end
     end
 
@@ -163,7 +164,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "" }
 
       it "answers empty string" do
-        expect(subject.title).to eq("")
+        expect(file.title).to eq("")
       end
     end
   end
@@ -173,7 +174,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "100 Track.flac" }
 
       it "answers track name as number and title" do
-        expect(subject.name).to eq("100 Track")
+        expect(file.name).to eq("100 Track")
       end
     end
 
@@ -181,7 +182,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "100.flac" }
 
       it "answers track name as number only" do
-        expect(subject.name).to eq("100")
+        expect(file.name).to eq("100")
       end
     end
 
@@ -189,7 +190,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "Track.flac" }
 
       it "answers track name as title only" do
-        expect(subject.name).to eq("Track")
+        expect(file.name).to eq("Track")
       end
     end
 
@@ -197,14 +198,14 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
       let(:path) { "" }
 
       it "answers track name as empty string" do
-        expect(subject.name).to eq("")
+        expect(file.name).to eq("")
       end
     end
   end
 
   describe "#tags" do
     it "answers metadata tags" do
-      tags = subject.tags.reduce({}) { |new_hash, tag| new_hash.merge tag.key => tag.value }
+      tags = file.tags.reduce({}) { |new_hash, tag| new_hash.merge tag.key => tag.value }
 
       expect(tags).to eq(
         "TRACKNUMBER" => "",
@@ -217,19 +218,19 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
 
   describe "#to_s" do
     it "answers string path" do
-      expect(subject.to_s).to eq(path)
+      expect(file.to_s).to eq(path)
     end
   end
 
   describe "#to_str" do
     it "answers string path" do
-      expect(subject.to_str).to eq(path)
+      expect(file.to_str).to eq(path)
     end
   end
 
   describe "#to_h" do
     it "answers metadata hash" do
-      expect(subject.to_h).to eq(
+      expect(file.to_h).to eq(
         "TRACKNUMBER" => "",
         "TITLE" => "Track",
         "ALBUM" => "Album",
@@ -240,7 +241,7 @@ RSpec.describe Flacsmith::Metadata::File, :temp_dir do
 
   describe "#to_hash" do
     it "answers metadata hash" do
-      expect(subject.to_hash).to eq(
+      expect(file.to_hash).to eq(
         "TRACKNUMBER" => "",
         "TITLE" => "Track",
         "ALBUM" => "Album",
