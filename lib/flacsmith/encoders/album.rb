@@ -19,7 +19,7 @@ module Flacsmith
 
       def encode
         input_dir.entries.each do |path|
-          next unless path.extname.match?(FILE_EXTENSIONS)
+          next unless path.extname.match? FILE_EXTENSIONS
 
           track_encoder.new(
             input_path: File.join(input_dir, path),

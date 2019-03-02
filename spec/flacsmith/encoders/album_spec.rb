@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Flacsmith::Encoders::Album, :temp_dir do
-  subject(:album) do
+  subject :album do
     described_class.new input_dir: input_dir, output_dir: output_dir, image_path: image_path
   end
 

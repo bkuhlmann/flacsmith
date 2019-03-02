@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
-  subject(:track) do
+  subject :track do
     described_class.new input_path: input_path,
                         image_path: image_path,
                         output_dir: output_dir,
@@ -36,7 +36,7 @@ RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
     end
 
     context "with special characters in input file name" do
-      subject(:track) do
+      subject :track do
         described_class.new input_path: special_path,
                             image_path: image_path,
                             output_dir: output_dir,
@@ -64,7 +64,7 @@ RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
     end
 
     context "with special characters in image file name" do
-      subject(:track) do
+      subject :track do
         described_class.new input_path: input_path,
                             image_path: special_path,
                             output_dir: output_dir,

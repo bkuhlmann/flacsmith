@@ -37,7 +37,7 @@ module Flacsmith
         DEFAULT_OPTIONS.map do |option|
           case option
             when /<image_path>/
-              option.sub("<image_path>", picture) if picture.exist?
+              option.sub "<image_path>", picture if picture.exist?
             else option
           end
         end
@@ -56,7 +56,7 @@ module Flacsmith
       end
 
       def output_path
-        return Pathname("") unless input_path.exist?
+        return Pathname "" unless input_path.exist?
 
         file = Metadata::File.new input_path
         Pathname.new "#{output_dir}/#{file.name}.flac"
