@@ -21,7 +21,8 @@ module Flacsmith
     method_option :image,
                   aliases: "-i",
                   desc: "File path to album image.",
-                  type: :string, default: ""
+                  type: :string,
+                  default: ""
     def encode input_dir, output_dir
       say "Encoding: #{input_dir} to #{output_dir}...\n\n"
       encoder = Encoders::Album.new input_dir: input_dir,

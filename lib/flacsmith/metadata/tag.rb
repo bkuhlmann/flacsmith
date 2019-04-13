@@ -6,8 +6,21 @@ module Flacsmith
   module Metadata
     class Tag
       KEYS = %w[
-        ALBUM ARTIST CONTACT COPYRIGHT DATE DESCRIPTION GENRE ISRC LICENSE LOCATION
-        ORGANIZATION PERFORMER TITLE TRACKNUMBER VERSION
+        ALBUM
+        ARTIST
+        CONTACT
+        COPYRIGHT
+        DATE
+        DESCRIPTION
+        GENRE
+        ISRC
+        LICENSE
+        LOCATION
+        ORGANIZATION
+        PERFORMER
+        TITLE
+        TRACKNUMBER
+        VERSION
       ].freeze
 
       attr_reader :key
