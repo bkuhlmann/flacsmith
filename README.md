@@ -1,4 +1,8 @@
-# Flacsmith
+<p align="center">
+  <img src="FLACsmith.png" alt="FLACsmith Icon"/>
+</p>
+
+# FLACsmith
 
 [![Gem Version](https://badge.fury.io/rb/flacsmith.svg)](http://badge.fury.io/rb/flacsmith)
 [![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/1c9fab2b1d26ad819817/maintainability)](https://codeclimate.com/github/bkuhlmann/flacsmith/maintainability)
