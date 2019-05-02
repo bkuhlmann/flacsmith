@@ -12,7 +12,7 @@ module Flacsmith
     end
 
     def self.version
-      "6.1.0"
+      "6.1.1"
     end
 
     def self.version_label
