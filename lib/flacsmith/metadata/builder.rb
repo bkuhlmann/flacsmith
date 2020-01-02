@@ -12,7 +12,7 @@ module Flacsmith
       end
 
       def build
-        files.each { |file| Tagger.new(file).update tags: file.tags }
+        files.each { |file| Tagger.new(file).update file.tags }
       end
 
       private
