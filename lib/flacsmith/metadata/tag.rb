@@ -59,7 +59,7 @@ module Flacsmith
         invalid_keys = [key] - KEYS
         return true if invalid_keys.empty?
 
-        fail Errors::InvalidMetadataKey, keys: invalid_keys
+        fail Errors::InvalidMetadataKey, invalid_keys
       end
     end
   end
