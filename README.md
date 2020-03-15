@@ -21,6 +21,8 @@ few).
   - [Features](#features)
   - [Requirements](#requirements)
   - [Setup](#setup)
+    - [Production](#production)
+    - [Development](#development)
   - [Usage](#usage)
   - [Tests](#tests)
   - [Versioning](#versioning)
@@ -46,9 +48,23 @@ few).
 
 ## Setup
 
-Type the following to install:
+### Production
+
+To install, run:
 
     gem install flacsmith
+
+### Development
+
+To contribute, run:
+
+    git clone https://github.com/bkuhlmann/flacsmith.git
+    cd flacsmith
+    bin/setup
+
+You can also use the IRB console for direct access to all objects:
+
+    bin/console
 
 ## Usage
 
