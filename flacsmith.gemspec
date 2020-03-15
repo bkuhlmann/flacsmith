@@ -3,8 +3,8 @@
 require_relative "lib/flacsmith/identity"
 
 Gem::Specification.new do |spec|
-  spec.name = Flacsmith::Identity.name
-  spec.version = Flacsmith::Identity.version
+  spec.name = Flacsmith::Identity::NAME
+  spec.version = Flacsmith::Identity::VERSION
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]

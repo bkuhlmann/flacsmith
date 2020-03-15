@@ -11,7 +11,7 @@ RSpec.describe Flacsmith::CLI do
 
     shared_examples_for "a version command" do
       it "prints version" do
-        pattern = /#{Flacsmith::Identity.version_label}\n/
+        pattern = /#{Flacsmith::Identity::VERSION_LABEL}\n/
         result = -> { cli }
         expect(&result).to output(pattern).to_stdout
       end
@@ -19,7 +19,7 @@ RSpec.describe Flacsmith::CLI do
 
     shared_examples_for "a help command" do
       it "prints usage" do
-        pattern = /#{Flacsmith::Identity.version_label}\scommands:\n/
+        pattern = /#{Flacsmith::Identity::VERSION_LABEL}\scommands:\n/
         result = -> { cli }
         expect(&result).to output(pattern).to_stdout
       end

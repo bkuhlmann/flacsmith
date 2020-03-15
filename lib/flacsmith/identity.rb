@@ -3,20 +3,9 @@
 module Flacsmith
   # Gem identity information.
   module Identity
-    def self.name
-      "flacsmith"
-    end
-
-    def self.label
-      "Flacsmith"
-    end
-
-    def self.version
-      "7.0.0"
-    end
-
-    def self.version_label
-      "#{label} #{version}"
-    end
+    NAME = "flacsmith"
+    LABEL = "Flacsmith"
+    VERSION = "7.0.0"
+    VERSION_LABEL = "#{LABEL} #{VERSION}"
   end
 end
