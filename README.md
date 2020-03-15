@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="FLACsmith.png" alt="FLACsmith Icon"/>
+  <img src="https://www.alchemists.io/images/projects/FLACsmith/icon.png" alt="FLACsmith Icon"/>
 </p>
 
 # FLACsmith
