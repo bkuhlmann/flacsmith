@@ -1,0 +1,137 @@
+:toc: macro
+:toclevels: 5
+:figure-caption!:
+
+= FLACsmith
+
+[link=http://badge.fury.io/rb/flacsmith]
+image::https://badge.fury.io/rb/flacsmith.svg[Gem Version]
+[link=https://circleci.com/gh/bkuhlmann/flacsmith]
+image::https://circleci.com/gh/bkuhlmann/flacsmith.svg?style=svg[Circle CI Status]
+
+This is a Ruby wrapper for the link:https://xiph.org/flac[FLAC] commands. It aids in
+listing/rebuilding metadata for a music collection, artist, album, or song. Having metadata
+information that reflects the directory/file structure makes organizing and managing large music
+collections easier. This can be especially useful with tools like
+link:https://sourceforge.net/projects/audacity[Audacity] and/or
+link:https://www.videolan.org/vlc/index.html[VLC].
+
+toc::[]
+
+== Features
+
+* Converts source audio (AIFF) to FLAC.
+* Rebuilds metadata for a file, album, artist, or music collection.
+* Lists metadata for a file, album, artist, or music collection.
+
+== Requirements
+
+. A UNIX-based system.
+. link:https://www.ruby-lang.org[Ruby 2.7.x].
+. link:https://xiph.org/flac[FLAC] (i.e. `brew install flac`).
+
+== Setup
+
+=== Production
+
+To install, run:
+
+[source,bash]
+----
+gem install flacsmith
+----
+
+=== Development
+
+To contribute, run:
+
+[source,bash]
+----
+git clone https://github.com/bkuhlmann/flacsmith.git
+cd flacsmith
+bin/setup
+----
+
+You can also use the IRB console for direct access to all objects:
+
+[source,bash]
+----
+bin/console
+----
+
+== Usage
+
+From the command line, type: pennyworth
+
+....
+flacsmith -C, [--convert=INPUT_DIR OUTPUT_DIR]  # Convert source audio to FLAC audio.
+flacsmith -h, [--help=COMMAND]                  # Show this message or get help for a command.
+flacsmith -l, [--list=PATH]                     # List track metadata for given folder/file structure.
+flacsmith -r, [--rebuild=PATH]                  # Rebuild track metadata for given folder/file structure.
+flacsmith -v, [--version]                       # Show gem version.
+....
+
+The following directory structure is assumed: `/<artist>/<album>/<tracknumber> <title>.flac`. This
+is important because metadata for a file is always rebuilt by inspecting the absolute path to the
+file which assumes that a song is nested within an artist and album folder and has a track number
+followed by a title. This convention over configuration technique allows metadata to be rebuilt by
+inspecting the absolute path of the file. This also means that the `--rebuild` option can be applied
+to a single song, album, artist, or a complete music collection.
+
+The following is an example of potential workflows:
+
+* Convert AIFF files to FLAC files:
+** Run: `flacsmith -C <input dir> <output dir>`
+* List metadata for an artist:
+** Run: `flacsmith -l <artist>`
+* List metadata for an album:
+** Run: `flacsmith -l <artist>/<album>`
+* List metadata for collection:
+** Run: `flacsmith -l .`
+* Rebuild metadata for a new album:
+** Copy the album to `<collecton>/<artist>/<album>`
+** Run: `flacsmith -r <collecton>/<artist>/<album>`
+* Rebuild metadata for a song:
+** Change directory to `<collecton>/<artist></album>`
+** Run: `mv <old name>.flac` to `<new name>.flac`
+** Run: `flacsmith -r <new name>.flac`
+* Rebuild metadata for entire music collection:
+** Run: `flacsmith -r .`
+
+== Tests
+
+To test, run:
+
+[source,bash]
+----
+bundle exec rake
+----
+
+== Versioning
+
+Read link:https://semver.org[Semantic Versioning] for details. Briefly, it means:
+
+* Major (X.y.z) - Incremented for any backwards incompatible public API changes.
+* Minor (x.Y.z) - Incremented for new, backwards compatible, public API enhancements/fixes.
+* Patch (x.y.Z) - Incremented for small, backwards compatible, bug fixes.
+
+== Code of Conduct
+
+Please note that this project is released with a link:CODE_OF_CONDUCT.adoc[CODE OF CONDUCT]. By
+participating in this project you agree to abide by its terms.
+
+== Contributions
+
+Read link:CONTRIBUTING.adoc[CONTRIBUTING] for details.
+
+== License
+
+Read link:LICENSE.adoc[LICENSE] for details.
+
+== History
+
+Read link:CHANGES.adoc[CHANGES] for details.
+
+== Credits
+
+Engineered by link:https://www.alchemists.io/team/brooke_kuhlmann.html[Brooke Kuhlmann].
