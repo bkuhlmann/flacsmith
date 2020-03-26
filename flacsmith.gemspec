@@ -8,14 +8,15 @@ Gem::Specification.new do |spec|
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
-  spec.homepage = "https://github.com/bkuhlmann/flacsmith"
+  spec.homepage = "https://www.alchemists.io/projects/flacsmith"
   spec.summary = "A command line interface for managing FLAC metadata."
   spec.license = "Apache-2.0"
 
   spec.metadata = {
-    "source_code_uri" => "https://github.com/bkuhlmann/flacsmith",
-    "changelog_uri" => "https://github.com/bkuhlmann/flacsmith/blob/master/CHANGES.md",
-    "bug_tracker_uri" => "https://github.com/bkuhlmann/flacsmith/issues"
+    "bug_tracker_uri" => "https://github.com/bkuhlmann/flacsmith/issues",
+    "changelog_uri" => "https://www.alchemists.io/projects/flacsmith/changes.html",
+    "documentation_uri" => "https://www.alchemists.io/projects/flacsmith",
+    "source_code_uri" => "https://github.com/bkuhlmann/flacsmith"
   }
 
   spec.signing_key = Gem.default_key_path
