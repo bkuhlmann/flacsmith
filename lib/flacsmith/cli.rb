@@ -2,12 +2,14 @@
 
 require "thor"
 require "thor/actions"
-require "pathname"
+require "refinements/pathnames"
 
 module Flacsmith
   # The Command Line Interface (CLI) for the gem.
   class CLI < Thor
     include Thor::Actions
+
+    using Refinements::Pathnames
 
     package_name Identity::VERSION_LABEL
 
@@ -46,7 +48,7 @@ module Flacsmith
     def rebuild path
       say "Rebuilding metadata for: #{path}..."
 
-      metadata = Metadata::Builder.new path
+      metadata = Metadata::Builder.new Pathname(path)
       metadata.build
       metadata.paths.each { |file_path| say "Processed: #{file_path}" }
 
@@ -72,7 +74,7 @@ module Flacsmith
     end
 
     def print_metadata path
-      Pathname.glob("#{path}/**/*.flac").each do |file_path|
+      Pathname(path).files("**/*.flac").each do |file_path|
         say "FILE = #{file_path}"
         print_tags file_path
         say
