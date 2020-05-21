@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "refinements/pathnames"
 
 RSpec.describe Flacsmith::Metadata::Builder, :temp_dir do
+  using Refinements::Pathnames
+
   subject(:builder) { described_class.new temp_dir }
 
-  let(:sample_file) { Pathname.new "#{Dir.pwd}/spec/support/files/sample.flac" }
-  let(:album_path) { Pathname.new "#{temp_dir}/Test Artist/Test Album" }
+  let(:sample_file) { Pathname "#{Dir.pwd}/spec/support/files/sample.flac" }
+  let(:album_path) { Pathname "#{temp_dir}/Test Artist/Test Album" }
 
   before do
     FileUtils.mkdir_p album_path
@@ -17,7 +20,7 @@ RSpec.describe Flacsmith::Metadata::Builder, :temp_dir do
   end
 
   describe "#paths" do
-    let(:proof_paths) { Pathname.glob "#{album_path}**/*" }
+    let(:proof_paths) { album_path.files "**/*" }
 
     context "when paths exist" do
       it "answers array of FLAC paths" do
@@ -34,7 +37,7 @@ RSpec.describe Flacsmith::Metadata::Builder, :temp_dir do
     end
 
     context "when path has trailing slash" do
-      subject(:builder) { described_class.new "#{temp_dir}/" }
+      subject(:builder) { described_class.new temp_dir }
 
       it "answers array of FLAC paths" do
         expect(builder.paths).to eq(proof_paths)

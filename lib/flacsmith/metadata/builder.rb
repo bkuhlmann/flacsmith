@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
-require "pathname"
+require "refinements/pathnames"
 
 module Flacsmith
   module Metadata
     class Builder
+      using Refinements::Pathnames
+
       attr_reader :paths
 
       def initialize path
-        @paths = Pathname.glob "#{path.to_s.chomp ::File::SEPARATOR}/**/*.flac"
+        @paths = path.files "**/*.flac"
       end
 
       def build
