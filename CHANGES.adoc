@@ -1,5 +1,14 @@
 = Changes
 
+== 7.2.0 (2020-05-23)
+
+- Updated Pry gem dependencies
+- Updated README credit URL
+- Updated Rubocop gem dependencies
+- Updated to Refinements 7.4.0
+- Refactored CLI to use pathnames
+- Refactored metadata builder to use pathnames
+
 == 7.1.0 (2020-04-01)
 
 - Added README production and development setup instructions
