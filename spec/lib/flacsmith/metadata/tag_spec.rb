@@ -27,7 +27,7 @@ RSpec.describe Flacsmith::Metadata::Tag do
   describe "#initialize" do
     it "fails with error when given an invalid key" do
       result = -> { described_class.new "bogus" }
-      message = /Invalid\smetadata\skey.+\"bogus\".+/
+      message = /Invalid\smetadata\skey.+"bogus".+/
 
       expect(&result).to raise_error(Flacsmith::Errors::InvalidMetadataKey, message)
     end

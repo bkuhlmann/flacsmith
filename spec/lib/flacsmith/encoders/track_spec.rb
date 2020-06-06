@@ -27,7 +27,7 @@ RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
 
       it "logs empty message to standard output" do
         track.encode
-        expect(buffer.string).to match(/.+INFO\s\-\-\s\:\s\n/)
+        expect(buffer.string).to match(/.+INFO\s--\s:\s\n/)
       end
 
       it "answers true" do
@@ -55,7 +55,7 @@ RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
 
       it "logs empty message to standard output" do
         track.encode
-        expect(buffer.string).to match(/.+INFO\s\-\-\s\:\s\n/)
+        expect(buffer.string).to match(/.+INFO\s--\s:\s\n/)
       end
 
       it "answers true" do
@@ -82,7 +82,7 @@ RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
 
       it "logs empty message to standard output" do
         track.encode
-        expect(buffer.string).to match(/.+INFO\s\-\-\s\:\s\n/)
+        expect(buffer.string).to match(/.+INFO\s--\s:\s\n/)
       end
 
       it "answers true" do
@@ -103,7 +103,7 @@ RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
 
       it "fails with track error" do
         result = -> { track.encode }
-        regex = /.*ERROR\:.+you\smust\sspecify\sa\svalue.*/
+        regex = /.*ERROR:.+you\smust\sspecify\sa\svalue.*/
 
         expect(&result).to raise_error(Flacsmith::Errors::Track, regex)
       end
@@ -119,7 +119,7 @@ RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
 
       it "logs empty message to standard output" do
         track.encode
-        expect(buffer.string).to match(/.+INFO\s\-\-\s\:\s\n/)
+        expect(buffer.string).to match(/.+INFO\s--\s:\s\n/)
       end
 
       it "answers true" do
