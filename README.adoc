@@ -27,8 +27,8 @@ toc::[]
 == Requirements
 
 . A UNIX-based system.
-. link:https://www.ruby-lang.org[Ruby 2.7.x].
-. link:https://xiph.org/flac[FLAC] (i.e. `brew install flac`).
+. link:https://www.ruby-lang.org[Ruby].
+. link:https://xiph.org/flac[FLAC].
 
 == Setup
 
