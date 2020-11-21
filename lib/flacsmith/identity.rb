@@ -5,7 +5,7 @@ module Flacsmith
   module Identity
     NAME = "flacsmith"
     LABEL = "Flacsmith"
-    VERSION = "7.3.0"
+    VERSION = "7.4.0"
     VERSION_LABEL = "#{LABEL} #{VERSION}"
   end
 end
