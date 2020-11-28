@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "refinements/pathnames"
 
 RSpec.describe Flacsmith::Metadata::Builder, :temp_dir do
   using Refinements::Pathnames
