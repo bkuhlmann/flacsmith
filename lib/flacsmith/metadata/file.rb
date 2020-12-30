@@ -7,7 +7,7 @@ module Flacsmith
     class File
       using Refinements::Arrays
 
-      NUMBER_PATTERN = /\A\d+/.freeze
+      NUMBER_PATTERN = /\A\d+/
 
       def initialize path
         @path = String path

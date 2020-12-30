@@ -6,7 +6,7 @@ module Flacsmith
   module Encoders
     # An album encoder for encoding an album of files as FLAC files.
     class Album
-      FILE_EXTENSIONS = /\.(aif|aiff)/.freeze
+      FILE_EXTENSIONS = /\.(aif|aiff)/
 
       # rubocop:disable Metrics/ParameterLists
       def initialize input_dir:, output_dir: "", image_path: "", track_encoder: Track
