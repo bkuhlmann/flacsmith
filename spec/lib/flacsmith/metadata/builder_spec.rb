@@ -2,10 +2,12 @@
 
 require "spec_helper"
 
-RSpec.describe Flacsmith::Metadata::Builder, :temp_dir do
-  using Refinements::Pathnames
-
+RSpec.describe Flacsmith::Metadata::Builder do
   subject(:builder) { described_class.new temp_dir }
+
+  include_context "with temporary directory"
+
+  using Refinements::Pathnames
 
   let(:sample_file) { Pathname "#{Dir.pwd}/spec/support/files/sample.flac" }
   let(:album_path) { Pathname "#{temp_dir}/Test Artist/Test Album" }

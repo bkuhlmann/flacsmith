@@ -2,8 +2,10 @@
 
 require "spec_helper"
 
-RSpec.describe Flacsmith::Metadata::File, :temp_dir do
+RSpec.describe Flacsmith::Metadata::File do
   subject(:file) { described_class.new path }
+
+  include_context "with temporary directory"
 
   let(:path) { "/Artist/Album/Track.flac" }
 

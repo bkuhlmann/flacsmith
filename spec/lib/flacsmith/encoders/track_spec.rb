@@ -2,13 +2,15 @@
 
 require "spec_helper"
 
-RSpec.describe Flacsmith::Encoders::Track, :temp_dir do
+RSpec.describe Flacsmith::Encoders::Track do
   subject :track do
     described_class.new input_path: input_path,
                         image_path: image_path,
                         output_dir: output_dir,
                         logger: logger
   end
+
+  include_context "with temporary directory"
 
   let(:input_path) { File.join Bundler.root, "spec", "support", "files", "sample.aiff" }
   let(:image_path) { File.join Bundler.root, "spec", "support", "files", "sample.jpg" }

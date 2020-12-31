@@ -2,8 +2,10 @@
 
 require "spec_helper"
 
-RSpec.describe Flacsmith::Metadata::Tagger, :temp_dir do
+RSpec.describe Flacsmith::Metadata::Tagger do
   subject(:tagger) { described_class.new test_file }
+
+  include_context "with temporary directory"
 
   let(:album_path) { Pathname.new "#{temp_dir}/Test Artist/Test Album" }
   let(:sample_file) { Pathname.new "#{Dir.pwd}/spec/support/files/sample.flac" }
