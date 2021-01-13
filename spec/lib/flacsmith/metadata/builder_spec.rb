@@ -50,7 +50,7 @@ RSpec.describe Flacsmith::Metadata::Builder do
     it "updates track metadata", :aggregate_failures do
       builder.build
 
-      Dir["#{album_path}**/*"].sort.each.with_index do |path, index|
+      Dir["#{album_path}**/*"].each.with_index do |path, index|
         file = Flacsmith::Metadata::File.new path
         number = (index + 1).to_s.rjust 2, "0"
 
