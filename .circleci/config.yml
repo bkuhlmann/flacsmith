@@ -1,0 +1,39 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/project
+    docker:
+      - image: bkuhlmann/ruby:latest
+    steps:
+      - checkout
+
+      - run:
+          name: FLAC Install
+          command: |
+            apt-get update --yes --quiet --quiet
+            apt-get install --yes flac
+
+      - restore_cache:
+          name: Bundler Restore
+          keys:
+            - gem-cache-{{.Branch}}-{{checksum "flacsmith.gemspec"}}
+            - gem-cache-
+
+      - run:
+          name: Bundler Install
+          command: |
+            gem update --system
+            bundle config set path "vendor/bundle"
+            bundle install
+
+      - save_cache:
+          name: Bundler Store
+          key: gem-cache-{{.Branch}}-{{checksum "flacsmith.gemspec"}}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Build
+          command: |
+            sed -i 's/ rubycritic//g' Rakefile
+            bundle exec rake
