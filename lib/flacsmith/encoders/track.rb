@@ -9,10 +9,7 @@ module Flacsmith
   module Encoders
     # A track encoder for encoding a file as a FLAC file.
     class Track
-      DEFAULT_OPTIONS = [
-        "--verify",
-        %(--picture="<image_path>")
-      ].freeze
+      DEFAULT_OPTIONS = ["--verify", %(--picture="<image_path>")].freeze
 
       # rubocop:disable Metrics/ParameterLists
       def initialize input_path:, image_path: "", output_dir: "", logger: Logger.new(STDOUT)

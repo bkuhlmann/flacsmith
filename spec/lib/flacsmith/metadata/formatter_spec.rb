@@ -18,10 +18,7 @@ RSpec.describe Flacsmith::Metadata::Formatter do
       let(:text) { "example_1=test_1\nexample_2=test_2" }
 
       it "answers hash with multiple items" do
-        expect(formatter.to_h).to eq(
-          "example_1" => "test_1",
-          "example_2" => "test_2"
-        )
+        expect(formatter.to_h).to eq("example_1" => "test_1", "example_2" => "test_2")
       end
     end
 

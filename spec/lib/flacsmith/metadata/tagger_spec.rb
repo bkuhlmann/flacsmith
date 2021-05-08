@@ -64,10 +64,7 @@ RSpec.describe Flacsmith::Metadata::Tagger do
       end
 
       it "answers multiple tag hash" do
-        expect(tagger.read(tags)).to eq(
-          "COPYRIGHT" => "2014",
-          "LICENSE" => "MIT"
-        )
+        expect(tagger.read(tags)).to eq("COPYRIGHT" => "2014", "LICENSE" => "MIT")
       end
     end
 
@@ -111,10 +108,7 @@ RSpec.describe Flacsmith::Metadata::Tagger do
 
       it "answers multiple tag hash", :aggregate_failures do
         expect(tagger.add(tags)).to eq({})
-        expect(tagger.read(tags)).to eq(
-          "ARTIST" => "Test",
-          "ALBUM" => "The Album"
-        )
+        expect(tagger.read(tags)).to eq("ARTIST" => "Test", "ALBUM" => "The Album")
       end
     end
 
@@ -205,10 +199,7 @@ RSpec.describe Flacsmith::Metadata::Tagger do
 
       it "answers multiple tag hash", :aggregate_failures do
         expect(tagger.update(tags)).to eq({})
-        expect(tagger.read(tags)).to eq(
-          "ARTIST" => "Test",
-          "ALBUM" => "The Album"
-        )
+        expect(tagger.read(tags)).to eq("ARTIST" => "Test", "ALBUM" => "The Album")
       end
     end
 
